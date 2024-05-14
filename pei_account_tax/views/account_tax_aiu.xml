@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>account.tax.aiu.concepts
+    <record id="account_tax_aiu_concepts_view_form" model="ir.ui.view">
+        <field name="name">account.tax.aiu.concepts.view.form</field>
+        <field name="model">account.tax.aiu.concepts</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="company_id"/>
+                        </group>
+                        <group>
+                            <field name="type"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="concepts" string="Conceptos">
+                            <field name="aiu_type_concepts_ids" mode="tree" widget="section_and_note_one2many">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="tax_to_apply" widget="many2many_tags"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="account_tax_aiu_concepts_view_tree" model="ir.ui.view">
+        <field name="name">account.tax.aiu.concepts.view.tree</field>
+        <field name="model">account.tax.aiu.concepts</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="type"/>
+                <field name="company_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="act_account_tax_aiu_concepts">
+        <field name="name">Tipo Concepto AIU</field>
+        <field name="res_model">account.tax.aiu.concepts</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_account_tax_apportionment_account" 
+        name="Tipo Concepto AIU" 
+        sequence="10" 
+        action="act_account_tax_aiu_concepts"
+        parent="pei_account_tax.pei_account_tax_confi"
+        groups="pei_account_tax.group_aiu_user,pei_account_tax.group_aiu_config,pei_account_tax.group_aiu_administrator"/>
+</odoo>

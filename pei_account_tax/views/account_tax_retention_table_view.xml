@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>   
+    <record id="account_tax_retention_table_form_view" model="ir.ui.view">
+        <field name="name">account.tax.retention.table.form.view</field>
+        <field name="model">account.tax.retention.table</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" required="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="ica_type" required="1"/>
+                            <field name="active" widget="boolean_toggle"/>
+                            <field name="city_id" required="1"/>
+                            <field name="ciiu_activity_id" attrs="{'invisible': [('ica_type', '!=', 'rete_ica')], 'required': [('ica_type', '=', 'rete_ica')]}"/>
+                            <field name="ica_tax_id" attrs="{'invisible': [('ica_type', '!=', 'ica')], 'required': [('ica_type', '=', 'ica')]}"/>
+                            <field name="rteica_tax_id" attrs="{'invisible': [('ica_type', '!=', 'rete_ica')], 'required': [('ica_type', '=', 'rete_ica')]}"/>
+                        </group>
+                        <group>
+                            <label for="fee_ica" attrs="{'invisible': [('ica_type', '!=', 'ica')]}"/>
+                            <div attrs="{'invisible': [('ica_type', '!=', 'ica')]}">
+                                <field name="fee_ica" class="oe_inline" readonly="1" nolabel="1"/>
+                                <span class="o_form_label oe_inline">%</span>
+                            </div>
+                            <label for="fee_retention" attrs="{'invisible': [('ica_type', '!=', 'rete_ica')]}"/>
+                            <div attrs="{'invisible': [('ica_type', '!=', 'rete_ica')]}">
+                                <field name="fee_retention" class="oe_inline" readonly="1" nolabel="1"/>
+                                <span class="o_form_label oe_inline">%</span>
+                            </div>
+                            <field name="account_id" readonly="1" domain="[('deprecated', '=', False), ('company_id', '=', company_id), ('is_title', '=', True)]" attrs="{'invisible': [('ica_type', '!=', 'ica')]}"/>
+                            <field name="rte_account_id" readonly="1" domain="[('deprecated', '=', False), ('company_id', '=', company_id), ('is_title', '=', True)]" attrs="{'invisible': [('ica_type', '!=', 'rete_ica')]}"/>
+                            <field name="company_id" invisible="1"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="account_tax_retention_table_tree_view" model="ir.ui.view">
+        <field name="name">account.tax.retention.table.tree.view</field>
+        <field name="model">account.tax.retention.table</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="city_id"/>
+                <field name="ciiu_activity_id"/>
+                <field name="fee_ica"/>
+                <field name="fee_retention"/>
+                <field name="account_id"/>
+                <field name="active" widget="boolean_toggle"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="account_tax_retention_table_search_view" model="ir.ui.view">
+        <field name="name">account.tax.retention.table.tree.view</field>
+        <field name="model">account.tax.retention.table</field>
+        <field name="type">search</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="city_id"/>
+                <field name="account_id"/>
+                <field name="ciiu_activity_id"/>
+                <field name="account_id"/>
+                <field name="active"/>
+                <separator/>
+                <filter string="Todos" name="all" domain="['|', ('active', '=', False), ('active', '=', True)]"/>
+                <separator/>
+                <filter string="Archivados" name="inactive" domain="[('active', '=', False)]"/>
+                <group expand="0" string="Agrupar Por">
+                    <filter string="Ciudad" name="city_id" domain="[]" context="{'group_by': 'city_id'}"/>
+                    <filter string="Actividad Económica CIIU" name="ciiu_activity_id" domain="[]" context="{'group_by': 'ciiu_activity_id'}"/>
+                    <filter string="Cuenta Contable" name="account_id" domain="[]" context="{'group_by': 'account_id'}"/>
+                    <filter string="Activo" name="active" domain="[]" context="{'group_by': 'active'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_account_tax_retention_table" model="ir.actions.act_window">
+        <field name="name">Tabla de ICA y Retención de ICA</field>
+        <field name="res_model">account.tax.retention.table</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+            Crear una nueva Tabla
+            </p>
+        </field>
+    </record>
+
+    <menuitem 
+        id="pei_account_tax_menu" 
+        name="Tabla de ICA y Retención de ICA" 
+        parent="pei_account_tax.menu_tax_ica_retention_root"
+        sequence="10"
+        action="action_account_tax_retention_table"
+        groups="base.group_user"/>
+</odoo>

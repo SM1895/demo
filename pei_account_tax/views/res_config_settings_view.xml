@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="pei_account_tax_res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">pei.account.tax.res.config.settings.view.form</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <div id="tax_fiscal_country_234" position="after">
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_left_pane"/>
+                        <div class="o_setting_right_pane">
+                            <span class="o_form_label">Método de Calculo para Retención de ICA</span>
+                            <div class="text-muted">
+                                Configuración de Politicas
+                            </div>
+                            <div class="content-group">
+                                <div class="d-flex">
+                                    <field name="account_group_by_analytic" class="o_light_label"/>
+                                    <label for="account_group_by_analytic" class="ml16"/>
+                                </div>
+                                <div class="d-flex">
+                                    <field name="city_from_business" class="o_light_label"/>
+                                    <label for="city_from_business" class="ml16"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

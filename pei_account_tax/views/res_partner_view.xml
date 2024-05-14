@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>   
+    <record id="pei_account_tax_res_partner_view" model="ir.ui.view">
+        <field name="name">pei.account.tax.res.partner.view</field>
+        <field name="model">res.partner</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <page name="internal_notes" position="before">
+                <page string="Códigos CIIU" name="ciiu_codes">
+                    <field name="ciiu_value_ids" nolabel="1" create="false">
+                    </field>
+                </page>
+            </page>
+        </field>
+    </record>
+
+    <record id="pei_account_tax_res_partner_ciiu_view" model="ir.ui.view">
+        <field name="name">pei.account.tax.res.partner.ciiu.view</field>
+        <field name="model">res.partner</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="l10n_co_partner.view_partner_form_inherit"/>
+        <field name="arch" type="xml">
+            <field name="main_ciiu_id" position="replace">
+                <field name="main_ciiu_id" invisible="1"/>
+            </field>
+            <field name="other_ciiu_id" position="replace">
+                <field name="other_ciiu_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="account_tax_apportionment_account_view_form" model="ir.ui.view">
+        <field name="name">account.tax.apportionment.account.view.form</field>
+        <field name="model">account.tax.apportionment.account</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" required="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="account_tax_id" required="1" domain="[('is_title', '=', True), ('account_type', 'in', ('liability_payable', 'liability_credit_card', 'liability_current', 'liability_non_current'))]"/>
+                            <field name="expense_account_id" required="1" domain="[('is_title', '=', True), ('account_type', 'in', ('expense', 'expense_depreciation', 'expense_direct_cost'))]"/>
+                        </group>
+                        <group>
+                            <field name="journal_id" required="1"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="account_tax_apportionment_account_view_tree" model="ir.ui.view">
+        <field name="name">account.tax.apportionment.account.view.tree</field>
+        <field name="model">account.tax.apportionment.account</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="account_tax_id"/>
+                <field name="expense_account_id"/>
+                <field name="journal_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="act_account_tax_apportionment_account">
+        <field name="name">Configuración Contable</field>
+        <field name="res_model">account.tax.apportionment.account</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Click Para Crear una Nueva Configuración Contable
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_account_tax_apportionment_aiu_account" 
+        name="Configuración Contable" 
+        sequence="30" 
+        groups="pei_account_tax.account_tax_apportionment_user,pei_account_tax.account_tax_apportionment_admin"
+        action="act_account_tax_apportionment_account"
+        parent="pei_account_tax.menu_tax_apportionment_setting"/>
+</odoo>

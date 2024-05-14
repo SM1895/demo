@@ -1,0 +1,149 @@
+<odoo>
+    <data noupdate="1">
+        <!-- Impuestos Nacionales -->
+        <record model="account.exogenus.formats" id="format_1001">
+            <field name="name">Formato 1001</field>
+            <field name="code">1001</field>
+            <field name="format_type">dian</field>
+            <field name="description">PAGOS O ABONOS EN CUENTA Y RETENCIONES PRACTICADAS</field>
+            <field name="has_concepts">True</field>
+            <field name="has_smaller_amount">True</field>
+            <field name="lesser_amount">500000</field>
+        </record>
+        <record model="account.exogenus.formats" id="format_1003">
+            <field name="name">Formato 1003</field>
+            <field name="code">1003</field>
+            <field name="format_type">dian</field>
+            <field name="description">RETENCIONES EN LA FUENTE QUE LE PRACTICARON</field>
+            <field name="has_concepts">True</field>
+            <field name="has_smaller_amount">False</field>
+        </record>
+        <record model="account.exogenus.formats" id="format_1004">
+            <field name="name">Formato 1004</field>
+            <field name="code">1004</field>
+            <field name="format_type">dian</field>
+            <field name="description">DESCUENTOS TRIBUTARIOS</field>
+            <field name="has_concepts">True</field>
+            <field name="has_smaller_amount">False</field>
+        </record>
+        <record model="account.exogenus.formats" id="format_1005">
+            <field name="name">Formato 1005</field>
+            <field name="code">1005</field>
+            <field name="format_type">dian</field>
+            <field name="description">Impuesto a las ventas por pagar (Descontable)</field>
+            <field name="has_concepts">False</field>
+            <field name="has_smaller_amount">False</field>
+        </record>
+        <record model="account.exogenus.formats" id="format_1006">
+            <field name="name">Formato 1006</field>
+            <field name="code">1006</field>
+            <field name="format_type">dian</field>
+            <field name="description">Impuesto a las ventas por pagar (Generado)</field>
+            <field name="has_concepts">False</field>
+            <field name="has_smaller_amount">False</field>
+        </record>
+        <record model="account.exogenus.formats" id="format_1007">
+            <field name="name">Formato 1007</field>
+            <field name="code">1007</field>
+            <field name="format_type">dian</field>
+            <field name="description">Ingresos recibidos</field>
+            <field name="has_concepts">True</field>
+            <field name="has_smaller_amount">True</field>
+        </record>
+        <record model="account.exogenus.formats" id="format_1008">
+            <field name="name">Formato 1008</field>
+            <field name="code">1008</field>
+            <field name="format_type">dian</field>
+            <field name="description">Saldo de cuentas por cobrar al 31 de Diciembre</field>
+            <field name="has_concepts">True</field>
+            <field name="has_smaller_amount">True</field>
+            <field name="lesser_amount">500000</field>
+        </record>
+        <record model="account.exogenus.formats" id="format_1009">
+            <field name="name">Formato 1009</field>
+            <field name="code">1009</field>
+            <field name="format_type">dian</field>
+            <field name="description">Saldo de cuentas por pagar al 31 de Diciembre</field>
+            <field name="has_concepts">True</field>
+            <field name="has_smaller_amount">True</field>
+            <field name="lesser_amount">500000</field>
+        </record>
+        <record model="account.exogenus.formats" id="format_1010">
+            <field name="name">Formato 1010</field>
+            <field name="code">1010</field>
+            <field name="format_type">dian</field>
+            <field name="description">Información de socios, accionistas, comuneros y/o cooperados</field>
+            <field name="has_concepts">False</field>
+            <field name="has_smaller_amount">False</field>
+        </record>
+        <record model="account.exogenus.formats" id="format_1012">
+            <field name="name">Formato 1012</field>
+            <field name="code">1012</field>
+            <field name="format_type">dian</field>
+            <field name="description">Información de declaraciones tributarias, acciones, inversiones en bonos títulos valores y cuentas de ahorro y cuentas corrientes</field>
+            <field name="has_concepts">True</field>
+            <field name="has_smaller_amount">False</field>
+        </record>
+        <!-- Impuestos Distritales -->
+        <record model="account.exogenus.formats" id="art_0001">
+            <field name="name">Formato Art 1</field>
+            <field name="code">Art 1</field>
+            <field name="format_type">district</field>
+            <field name="description">Ingresos obtenidos por actividades no sujetas, deducciones o exenciones</field>
+            <field name="has_concepts">True</field>
+            <field name="has_smaller_amount">False</field>
+        </record>
+        <record model="account.exogenus.formats" id="art_0002">
+            <field name="name">Formato Art 2</field>
+            <field name="code">Art 2</field>
+            <field name="format_type">district</field>
+            <field name="description">Compra de bienes y servicios</field>
+            <field name="has_concepts">True</field>
+            <field name="has_smaller_amount">True</field>
+            <field name="lesser_amount">5000000</field>
+        </record>
+        <record model="account.exogenus.formats" id="art_0003">
+            <field name="name">Formato Art 3</field>
+            <field name="code">Art 3</field>
+            <field name="format_type">district</field>
+            <field name="description">Valor acumulado anual de las ventas de bienes</field>
+            <field name="has_concepts">True</field>
+            <field name="has_smaller_amount">True</field>
+            <field name="lesser_amount">5000000</field>
+        </record>
+        <record model="account.exogenus.formats" id="art_0004">
+            <field name="name">Formato Art 4</field>
+            <field name="code">Art 4</field>
+            <field name="format_type">district</field>
+            <field name="description">Art 4</field>
+            <field name="has_concepts">False</field>
+            <field name="has_smaller_amount">False</field>
+        </record>
+        <record model="account.exogenus.formats" id="art_0006">
+            <field name="name">Formato Art 6</field>
+            <field name="code">Art 6</field>
+            <field name="format_type">district</field>
+            <field name="description">Sujetos Rete ICA (Rete ICA a favor)</field>
+            <field name="has_smaller_amount">True</field>
+            <field name="lesser_amount">5000000</field>
+        </record>
+        <record model="account.exogenus.formats" id="format_2275">
+            <field name="name">Formato 2275</field>
+            <field name="code">2275</field>
+            <field name="format_type">dian</field>
+            <field name="description">Ingresos no constitutivos de renta ni ganancia ocasional V1</field>
+            <field name="has_concepts">True</field>
+            <field name="has_smaller_amount">False</field>
+
+        </record>
+        <record model="account.exogenus.formats" id="format_2276">
+            <field name="name">Formato 2276</field>
+            <field name="code">2276</field>
+            <field name="format_type">dian</field>
+            <field name="description">Rentas de trabajo y pensiones</field>
+            <field name="has_concepts">False</field>
+            <field name="has_smaller_amount">True</field>
+            <field name="lesser_amount">10000</field>
+        </record>
+    </data>
+</odoo>

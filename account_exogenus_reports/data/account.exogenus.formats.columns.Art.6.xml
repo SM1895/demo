@@ -1,0 +1,128 @@
+<odoo>
+    <data noupdate="1">
+        <record model="account.exogenus.formats.columns" id="line_art6_1">
+            <field name="name">AÑO</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">data</field>
+            <field name="exogenus_format_id" ref="art_0006"/>
+            <field name="condition_python">result = wiz.date_to.year</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_art6_2">
+            <field name="name">Tipo de documento</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">data</field>
+            <field name="exogenus_format_id" ref="art_0006"/>
+            <field name="condition_python">result = object["document_type"]</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_art6_3">
+            <field name="name">Número de identificación</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">data</field>
+            <field name="exogenus_format_id" ref="art_0006"/>
+            <field name="condition_python">result = object['number_identification']</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_art6_4">
+            <field name="name">Razón social informado</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">data</field>
+            <field name="exogenus_format_id" ref="art_0006"/>
+            <field name="condition_python">result = object['name']</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_art6_5">
+            <field name="name">Dirección</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">data</field>
+            <field name="exogenus_format_id" ref="art_0006"/>
+            <field name="condition_python">result = object['street']</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_art6_6">
+            <field name="name">Teléfono</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">data</field>
+            <field name="exogenus_format_id" ref="art_0006"/>
+            <field name="condition_python">result = object['phone']</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_art6_7">
+            <field name="name">Email</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">data</field>
+            <field name="exogenus_format_id" ref="art_0006"/>
+            <field name="condition_python">result = object['email']</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_art6_8">
+            <field name="name">Municipio</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">data</field>
+            <field name="exogenus_format_id" ref="art_0006"/>
+            <field name="condition_python">result = object['l10n_co_divipola']</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_art6_9">
+            <field name="name">Dpto</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">data</field>
+            <field name="exogenus_format_id" ref="art_0006"/>
+            <field name="condition_python">result = object['state_code']</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_art6_10">
+            <field name="name">Monto pago sin iva</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">calculated</field>
+            <field name="exogenus_format_id" ref="art_0006"/>
+            <field name="condition_python">tax_base_amount = 0
+journal = [x for x in wiz.journals_ids.ids]
+
+account_obj = self.env['account.column.line'].search([('account_column_id','=',self.id),('account_id','=',object['account_id'])])
+for line in account_obj:
+  domain = [
+      ('account_id','=',line.account_id.id),
+      ('partner_id','=',object['partner_id']),
+      ('parent_state', '=', 'posted'),
+      ('journal_id','not in',journal),
+      ('date', '>=', wiz.date_from),
+      ('date', '&lt;=', wiz.date_to)
+      ]
+  account_move_obj = self.env['account.move.line'].search(domain)
+  for acc in account_move_obj:
+      tax_base_amount += abs(acc.tax_base_amount)
+result = tax_base_amount</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_art6_11">
+            <field name="name">Tarifa aplicada</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">calculated</field>
+            <field name="exogenus_format_id" ref="art_0006"/>
+            <field name="condition_python">tax_base_amount = 0
+journal = [x for x in wiz.journals_ids.ids]
+
+account_obj = self.env['account.column.line'].search([('account_column_id','=',self.id),('account_id','=',object['account_id'])])
+for line in account_obj:
+  domain = [
+      ('account_id','=',line.account_id.id),
+      ('partner_id','=',object['partner_id']),
+      ('parent_state', '=', 'posted'),
+      ('journal_id','not in',journal),
+      ('date', '>=', wiz.date_from),
+      ('date', '&lt;=', wiz.date_to)
+      ]
+  account_move_obj = self.env['account.move.line'].search(domain)
+  for acc in account_move_obj:
+    if acc.tax_line_id.amount:
+      tax_base_amount = abs(acc.tax_line_id.amount)
+result = tax_base_amount</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_art6_12">
+            <field name="name">Monto retencion</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">calculated</field>
+            <field name="exogenus_format_id" ref="art_0006"/>
+            <field name="condition_python">data = {
+  'partner_id': object['partner_id'],
+  'journal_ids': wiz.journals_ids.ids,
+  'account_id': object['account_id'],
+  'date_from':wiz.date_from,
+  'date_to':wiz.date_to
+}
+result = self.calculate_total(data)</field>
+        </record>
+    </data>
+</odoo>

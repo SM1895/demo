@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>   
+    <record id="pei_account_tax_form_view" model="ir.ui.view">
+        <field name="name">pei.account.tax.form.view</field>
+        <field name="model">account.tax</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="account.view_tax_form"/>
+        <field name="arch" type="xml">
+            <field name="tax_scope" position="after">
+                <field name="rel_amount" invisible="1"/>
+                <field name="rel_name" invisible="1"/>
+            </field>
+            <xpath expr="//sheet" position="after">
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </xpath>
+            <field name="active" position="after">
+                <field name="inherit_analytic"/>
+                <field name="on_tax_ica"/>
+                <field name="first_ica_id" attrs="{'invisible': [('on_tax_ica', '=', False)], 'required': [('on_tax_ica', '=', True)], 'readonly': [('hierarchy1_id', '!=', False)]}"/>
+                <field name="second_ica_id" attrs="{'invisible': [('on_tax_ica', '=', False)], 'readonly': [('hierarchy1_id', '!=', False)]}"/>
+                <field name="third_ica_id" attrs="{'invisible': [('on_tax_ica', '=', False)], 'readonly': [('hierarchy1_id', '!=', False)]}"/>
+                <field name="hierarchy1_id" invisible="1"/>
+                <field name="hierarchy2_id" invisible="1"/>
+                <field name="hierarchy3_id" invisible="1"/>
+                <field name="utility_base"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="pei_tax_repartition_line_tree" model="ir.ui.view">
+        <field name="name">pei.account.tax.repartition.line.tree</field>
+        <field name="model">account.tax.repartition.line</field>
+        <field name="inherit_id" ref="account.tax_repartition_line_tree"/>
+        <field name="arch" type="xml">
+            <field name="account_id" position="replace">
+                <field name="account_id" attrs="{'invisible': [('repartition_type', '=', 'base')], 'required': [('repartition_type', '=', 'tax')]}" options="{'no_create': True}"/>
+            </field>
+        </field>
+    </record>
+</odoo>
