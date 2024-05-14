@@ -1,0 +1,555 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* account_exogenus_reports
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-03-18 20:26+0000\n"
+"PO-Revision-Date: 2024-03-18 16:30-0500\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es_CO\n"
+"X-Generator: Poedit 2.3\n"
+
+#. module: account_exogenus_reports
+#: model_terms:ir.ui.view,arch_db:account_exogenus_reports.account_exogenus_print_reports
+msgid "<span class=\"o_form_label mx-3 oe_edit_only\">to</span>"
+msgstr "<span class=\"o_form_label mx-3 oe_edit_only\">a</span>"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_account_column__account_id
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_concepts_account__account_id
+msgid "Account"
+msgstr "Cuenta"
+
+#. module: account_exogenus_reports
+#: model_terms:ir.ui.view,arch_db:account_exogenus_reports.account_exogenus_formats_columns_view_form
+msgid "Account Column"
+msgstr "Cuenta Columna"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_columns__account_colums_ids
+msgid "Account Columns"
+msgstr "Cuenta Columnas"
+
+#. module: account_exogenus_reports
+#: model:ir.actions.act_window,name:account_exogenus_reports.action_account_column_account_wizard
+msgid "Account column"
+msgstr "Cuenta Columna"
+
+#. module: account_exogenus_reports
+#: model:ir.actions.act_window,name:account_exogenus_reports.action_account_concept_account_wizard
+msgid "Account concept"
+msgstr "Cuenta  Concepto"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_column_account_wizard__acount_exogenus_column_account_ids
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_concept_account_wizard__account_exogenus_concept_account_ids
+msgid "Accounts"
+msgstr "Cuentas"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields.selection,name:account_exogenus_reports.selection__account_exogenus_formats_columns__type_column__calculated
+msgid "Calculated"
+msgstr "Calculado"
+
+#. module: account_exogenus_reports
+#: model_terms:ir.ui.view,arch_db:account_exogenus_reports.account_column_account_wizard
+#: model_terms:ir.ui.view,arch_db:account_exogenus_reports.account_concept_account_wizard
+#: model_terms:ir.ui.view,arch_db:account_exogenus_reports.account_exogenus_print_reports
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats__code
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_concepts__code
+msgid "Code"
+msgstr "Código"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_account_column__account_column_id
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_columns_sequence__account_format_column_id
+msgid "Column"
+msgstr "Columna"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_columns__column_account
+msgid "Columna with Account"
+msgstr "Columna con Cuenta"
+
+#. module: account_exogenus_reports
+#: model_terms:ir.ui.view,arch_db:account_exogenus_reports.account_exogenus_formats_view_form
+msgid "Columns Format"
+msgstr "Columnas Formato"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_account_column__company_id
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats__company_id
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_columns__company_id
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_concepts__company_id
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_concepts_account__company_id
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_print_reports__company_id
+msgid "Company"
+msgstr "Compañia"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_concepts__concept_exogenus_account_ids
+msgid "Concept Account"
+msgstr "Cuenta Concepto"
+
+#. module: account_exogenus_reports
+#: model_terms:ir.ui.view,arch_db:account_exogenus_reports.account_exogenus_formats_concepts_view_form
+msgid "Concepts Account"
+msgstr "Cuenta Conceptos"
+
+#. module: account_exogenus_reports
+#: model_terms:ir.ui.view,arch_db:account_exogenus_reports.account_exogenus_formats_view_form
+msgid "Concepts Format"
+msgstr "Conceptos Formato"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_columns__condition_python
+msgid "Condition python"
+msgstr "Condición Python"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_column_account_wizard__create_uid
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_concept_account_wizard__create_uid
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_account_column__create_uid
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats__create_uid
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_columns__create_uid
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_columns_sequence__create_uid
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_concepts__create_uid
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_concepts_account__create_uid
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_print_reports__create_uid
+msgid "Created by"
+msgstr "Creado Por"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_column_account_wizard__create_date
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_concept_account_wizard__create_date
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_account_column__create_date
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats__create_date
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_columns__create_date
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_columns_sequence__create_date
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_concepts__create_date
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_concepts_account__create_date
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_print_reports__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields.selection,name:account_exogenus_reports.selection__account_exogenus_formats__format_type__dian
+msgid "DIAN"
+msgstr ""
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields.selection,name:account_exogenus_reports.selection__account_exogenus_formats_columns__type_column__data
+msgid "Data"
+msgstr "Datos"
+
+#. module: account_exogenus_reports
+#: model_terms:ir.ui.view,arch_db:account_exogenus_reports.account_exogenus_print_reports
+msgid "Date From"
+msgstr "Fecha Desde"
+
+#. module: account_exogenus_reports
+#: model_terms:ir.ui.view,arch_db:account_exogenus_reports.account_exogenus_print_reports
+msgid "Date to"
+msgstr "Fecha Hasta"
+
+#. module: account_exogenus_reports
+#: model_terms:ir.ui.view,arch_db:account_exogenus_reports.account_exogenus_print_reports
+msgid "Dates"
+msgstr "Fechas"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats__description
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_concepts__description
+msgid "Description"
+msgstr "Descripción"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_column_account_wizard__display_name
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_concept_account_wizard__display_name
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_account_column__display_name
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats__display_name
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_columns__display_name
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_columns_sequence__display_name
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_concepts__display_name
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_concepts_account__display_name
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_print_reports__display_name
+msgid "Display Name"
+msgstr "Nombre"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields.selection,name:account_exogenus_reports.selection__account_exogenus_formats__format_type__district
+msgid "District"
+msgstr "Distrito"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_print_reports__date_to
+msgid "End Date"
+msgstr "Fecha Final"
+
+#. module: account_exogenus_reports
+#: model_terms:ir.ui.view,arch_db:account_exogenus_reports.account_exogenus_formats_columns_tree_view
+#: model_terms:ir.ui.view,arch_db:account_exogenus_reports.account_exogenus_formats_tree_view
+msgid "Exogenus Format"
+msgstr "Formato Exogena"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_column_account_wizard__account_exogenus_format_column_id
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_concept_account_wizard__account_exogenus_format_concept_id
+msgid "Exogenus Format Column"
+msgstr "Exogena Formato Columna"
+
+#. module: account_exogenus_reports
+#: model_terms:ir.ui.view,arch_db:account_exogenus_reports.account_exogenus_formats_concepts_tree_view
+msgid "Exogenus Format Concepts"
+msgstr "Conceptos Formatos Exogena"
+
+#. module: account_exogenus_reports
+#: model_terms:ir.ui.view,arch_db:account_exogenus_reports.account_exogenus_formats_concepts_account_tree_view
+msgid "Exogenus Format Concepts Account"
+msgstr "Conceptos formato Exogena Cuenta"
+
+#. module: account_exogenus_reports
+#: model:ir.ui.menu,name:account_exogenus_reports.account_exogenus_menu
+msgid "Exogenus Information"
+msgstr "Información Exogena"
+
+#. module: account_exogenus_reports
+#: model:ir.ui.menu,name:account_exogenus_reports.print_reports_exogenus_main_menu
+msgid "Exogenus reports"
+msgstr "Reporte Exogena"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_print_reports__file_binary
+msgid "File"
+msgstr "Archivo"
+
+#. module: account_exogenus_reports
+#: model_terms:ir.ui.view,arch_db:account_exogenus_reports.account_exogenus_print_reports
+msgid "File Generated"
+msgstr "Archivo Generado"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_print_reports__file_filename
+msgid "File Name"
+msgstr "Nombre Archivo"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_columns_sequence__exogenus_format_id
+#: model_terms:ir.ui.view,arch_db:account_exogenus_reports.account_exogenus_formats_concepts_view_search
+#: model_terms:ir.ui.view,arch_db:account_exogenus_reports.ccount_exogenus_formats_columns_view_search
+msgid "Format"
+msgstr "Formato"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats__exogenus_formats_columns_ids
+msgid "Format Columns"
+msgstr "Columnas Formato"
+
+#. module: account_exogenus_reports
+#: model:ir.actions.act_window,name:account_exogenus_reports.account_exogenus_formats_columns_action
+msgid "Format Columns Exogenus"
+msgstr "Exogena Formato Columnas"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats__exogenus_formats_concept_ids
+msgid "Format Concepts"
+msgstr "Conceptos Formatos"
+
+#. module: account_exogenus_reports
+#: model:ir.actions.act_window,name:account_exogenus_reports.account_exogenus_format_action
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_columns__exogenus_format_id
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_concepts__exogenus_format_id
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_concepts_account__exogenus_concept_id
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_print_reports__exogenus_format_id
+#: model:ir.ui.menu,name:account_exogenus_reports.account_exogenus_format_menu
+msgid "Format Exogenus"
+msgstr "Formato Exogena"
+
+#. module: account_exogenus_reports
+#: model:ir.ui.menu,name:account_exogenus_reports.account_exogenus_format_columns_menu
+msgid "Format Exogenus Columns"
+msgstr "Formato Exogena Columnas"
+
+#. module: account_exogenus_reports
+#: model:ir.ui.menu,name:account_exogenus_reports.account_exogenus_format_concept_accounts_menu
+msgid "Format Exogenus Concept Account"
+msgstr "Cuenta Concepto Formato Exogena"
+
+#. module: account_exogenus_reports
+#: model:ir.actions.act_window,name:account_exogenus_reports.account_exogenus_format_concepts_action
+#: model:ir.ui.menu,name:account_exogenus_reports.account_exogenus_format_concepts_menu
+msgid "Format Exogenus Concepts"
+msgstr "Conceptos Formato Exogena"
+
+#. module: account_exogenus_reports
+#: model:ir.actions.act_window,name:account_exogenus_reports.account_exogenus_format_concepts_account_action
+msgid "Format Exogenus Concepts Account"
+msgstr "Cunetas Conceptos Formato Exogena"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_print_reports__format_type
+msgid "Format type"
+msgstr "Tipo Formato"
+
+#. module: account_exogenus_reports
+#: model_terms:ir.ui.view,arch_db:account_exogenus_reports.account_exogenus_formats_concepts_view_search
+#: model_terms:ir.ui.view,arch_db:account_exogenus_reports.ccount_exogenus_formats_columns_view_search
+msgid "Group By"
+msgstr "Agrupar Por"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_columns__group_bool
+msgid "Grouping"
+msgstr "Agrupando"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats__has_concepts
+msgid "Has Concepts"
+msgstr "Tiene Conceptos"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats__has_smaller_amount
+msgid "Has Smaller Amount"
+msgstr "Tiene Cuantiá Menor"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_column_account_wizard__id
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_concept_account_wizard__id
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_account_column__id
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats__id
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_columns__id
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_columns_sequence__id
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_concepts__id
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_concepts_account__id
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_print_reports__id
+msgid "ID"
+msgstr ""
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_column_account_wizard____last_update
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_concept_account_wizard____last_update
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_account_column____last_update
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats____last_update
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_columns____last_update
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_columns_sequence____last_update
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_concepts____last_update
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_concepts_account____last_update
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_print_reports____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_column_account_wizard__write_uid
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_concept_account_wizard__write_uid
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_account_column__write_uid
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats__write_uid
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_columns__write_uid
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_columns_sequence__write_uid
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_concepts__write_uid
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_concepts_account__write_uid
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_print_reports__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_column_account_wizard__write_date
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_concept_account_wizard__write_date
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_account_column__write_date
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats__write_date
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_columns__write_date
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_columns_sequence__write_date
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_concepts__write_date
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_concepts_account__write_date
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_print_reports__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats__lesser_amount
+msgid "Lesser Amount"
+msgstr "Cuantiá Menor"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_columns__minior_amount
+msgid "Minior Amount"
+msgstr "Cuantiá Menor"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_account_column__name
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats__name
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_columns__name
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_concepts__name
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_concepts_account__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: account_exogenus_reports
+#. odoo-python
+#: code:addons/account_exogenus_reports/models/account_exogenus_formats_columns.py:0
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_account_column__nature_account
+#, python-format
+msgid "Nature account"
+msgstr "Naturaleza de la Cuenta"
+
+#. module: account_exogenus_reports
+#: model_terms:ir.ui.view,arch_db:account_exogenus_reports.account_exogenus_print_reports
+msgid "Print Report"
+msgstr "Imprimir Reporte"
+
+#. module: account_exogenus_reports
+#. odoo-python
+#: code:addons/account_exogenus_reports/wizard/account_exogenus_print_reports.py:0
+#, python-format
+msgid "Print Report Account Exogenus"
+msgstr "Imprimir Reporte Contabilidad Exogena"
+
+#. module: account_exogenus_reports
+#: model:ir.actions.act_window,name:account_exogenus_reports.action_menu_main_print_report_exogenus
+msgid "Print Report Exogenus"
+msgstr "Imprimir Reporte Exogena"
+
+#. module: account_exogenus_reports
+#: model:ir.ui.menu,name:account_exogenus_reports.print_reports_exogenus_mwnu
+msgid "Print exogenus reports"
+msgstr "Imprimir Reporte Exogena"
+
+#. module: account_exogenus_reports
+#: model_terms:ir.ui.view,arch_db:account_exogenus_reports.account_exogenus_formats_concepts_view_search
+#: model_terms:ir.ui.view,arch_db:account_exogenus_reports.ccount_exogenus_formats_columns_view_search
+msgid "Search Concepts Exogenus"
+msgstr "Busqueda Concepto Exogena"
+
+#. module: account_exogenus_reports
+#: model_terms:ir.ui.view,arch_db:account_exogenus_reports.account_column_account_wizard
+#: model_terms:ir.ui.view,arch_db:account_exogenus_reports.account_concept_account_wizard
+msgid "Select accounts"
+msgstr "Seleccione  Cuentas"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_columns_sequence__sequence
+msgid "Sequence"
+msgstr "Sequencia"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_print_reports__date_from
+msgid "Start Date"
+msgstr "Fecha Inicio"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,help:account_exogenus_reports.field_account_exogenus_formats_columns__group_bool
+msgid "True with column define grouping"
+msgstr "Verdadero con agrupación definida por columnas"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats__format_type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_columns__type_column
+msgid "Type Column"
+msgstr "Tipo Columna"
+
+#. module: account_exogenus_reports
+#: model:ir.model,name:account_exogenus_reports.model_account_column_account_wizard
+msgid "account.column.account.wizard"
+msgstr ""
+
+#. module: account_exogenus_reports
+#: model:ir.model,name:account_exogenus_reports.model_account_concept_account_wizard
+msgid "account.concept.account.wizard"
+msgstr ""
+
+#. module: account_exogenus_reports
+#: model:ir.model,name:account_exogenus_reports.model_account_exogenus_account_column
+msgid "account.exogenus.account.column"
+msgstr "Cuenta Columna"
+
+#. module: account_exogenus_reports
+#: model:ir.model,name:account_exogenus_reports.model_account_exogenus_formats
+msgid "account.exogenus.formats"
+msgstr ""
+
+#. module: account_exogenus_reports
+#: model:ir.model,name:account_exogenus_reports.model_account_exogenus_formats_columns
+msgid "account.exogenus.formats.columns"
+msgstr ""
+
+#. module: account_exogenus_reports
+#: model:ir.model,name:account_exogenus_reports.model_account_exogenus_formats_columns_sequence
+msgid "account.exogenus.formats.columns.sequence"
+msgstr ""
+
+#. module: account_exogenus_reports
+#: model:ir.model,name:account_exogenus_reports.model_account_exogenus_formats_concepts
+msgid "account.exogenus.formats.concepts"
+msgstr ""
+
+#. module: account_exogenus_reports
+#: model:ir.model,name:account_exogenus_reports.model_account_exogenus_formats_concepts_account
+msgid "account.exogenus.formats.concepts.account"
+msgstr ""
+
+#. module: account_exogenus_reports
+#: model:ir.model,name:account_exogenus_reports.model_account_exogenus_print_reports
+msgid "account.exogenus.print.reports"
+msgstr ""
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields.selection,name:account_exogenus_reports.selection__account_exogenus_account_column__nature_account__balance
+msgid "balance"
+msgstr "Balance"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields.selection,name:account_exogenus_reports.selection__account_exogenus_account_column__nature_account__credit
+msgid "credit"
+msgstr "Credit"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields.selection,name:account_exogenus_reports.selection__account_exogenus_account_column__nature_account__debit
+msgid "debit"
+msgstr "Debito"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields,field_description:account_exogenus_reports.field_account_exogenus_formats_columns__description
+msgid "description"
+msgstr "Descripción"
+
+#. module: account_exogenus_reports
+#: model_terms:ir.ui.view,arch_db:account_exogenus_reports.account_exogenus_formats_columns_view_form
+#: model_terms:ir.ui.view,arch_db:account_exogenus_reports.account_exogenus_formats_concepts_view_form
+#: model_terms:ir.ui.view,arch_db:account_exogenus_reports.account_exogenus_formats_view_form
+msgid "name"
+msgstr "Nombre"
+
+#. module: account_exogenus_reports
+#: model:ir.model.fields.selection,name:account_exogenus_reports.selection__account_exogenus_account_column__nature_account__net
+msgid "net"
+msgstr "Neto"
+
+#. module: account_exogenus_reports
+#: model_terms:ir.ui.view,arch_db:account_exogenus_reports.account_exogenus_print_reports
+msgid "print_report_exogenus"
+msgstr "Imprimir Reporte Exogena"
+
+#. module: account_exogenus_reports
+#. odoo-python
+#: code:addons/account_exogenus_reports/models/account_exogenus_formats_columns.py:0
+#: code:addons/account_exogenus_reports/models/account_exogenus_formats_concepts.py:0
+#: model_terms:ir.ui.view,arch_db:account_exogenus_reports.account_exogenus_formats_columns_view_form
+#: model_terms:ir.ui.view,arch_db:account_exogenus_reports.account_exogenus_formats_concepts_view_form
+#, python-format
+msgid "select account"
+msgstr "Seleccionar Cuenta"

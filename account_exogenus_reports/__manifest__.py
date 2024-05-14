@@ -1,0 +1,60 @@
+# -*- coding: utf-8 -*-
+{
+    'name': "Account Exogenus Reports",
+
+    'summary': """
+        Module than generate all formats of exogenus
+    """,
+
+    'author': "Biel Software",
+    'website': "https://www.bielsoftware.com",
+
+    'category': 'Accounting',
+    'version': '16.0.0.1.0',
+
+    'depends': ['account'],
+
+    'data': [
+        'data/account.exogenus.formats.xml',
+        'data/account.exogenus.formats.concepts.xml',
+        'data/account.exogenus.formats.columns.1001.xml',
+        'data/account.exogenus.formats.columns.1003.xml',
+        'data/account.exogenus.formats.columns.1004.xml',
+        'data/account.exogenus.formats.columns.1005.xml',
+        'data/account.exogenus.formats.columns.1006.xml',
+        'data/account.exogenus.formats.columns.1007.xml',
+        'data/account.exogenus.formats.columns.1008.xml',
+        'data/account.exogenus.formats.columns.1009.xml',
+        'data/account.exogenus.formats.columns.1012.xml',
+        'data/account.exogenus.formats.columns.2275.xml',
+        'data/account.exogenus.formats.columns.2276.xml',
+        'data/account.exogenus.formats.columns.Art.1.xml',
+        'data/account.exogenus.formats.columns.Art.2.xml',
+        'data/account.exogenus.formats.columns.Art.3.xml',
+        'data/account.exogenus.formats.columns.Art.6.xml',
+        'data/account.exogenus.formats.columns.sequence.1001.xml',
+        'data/account.exogenus.formats.columns.sequence.1003.xml',
+        'data/account.exogenus.formats.columns.sequence.1004.xml',
+        'data/account.exogenus.formats.columns.sequence.1005.xml',
+        'data/account.exogenus.formats.columns.sequence.1006.xml',
+        'data/account.exogenus.formats.columns.sequence.1007.xml',
+        'data/account.exogenus.formats.columns.sequence.1008.xml',
+        'data/account.exogenus.formats.columns.sequence.1009.xml',
+        'data/account.exogenus.formats.columns.sequence.1012.xml',
+        'data/account.exogenus.formats.columns.sequence.2275.xml',
+        'data/account.exogenus.formats.columns.sequence.2276.xml',
+        'data/account.exogenus.formats.columns.sequence.Art.1.xml',
+        'data/account.exogenus.formats.columns.sequence.Art.2.xml',
+        'data/account.exogenus.formats.columns.sequence.Art.3.xml',
+        'data/account.exogenus.formats.columns.sequence.Art.6.xml',
+        'security/ir.model.access.csv',
+        'views/account_exogenus_formats_columns_view.xml',
+        'views/account_exogenus_formats_concepts_view.xml',
+        'views/account_exogenus_format_view.xml',
+        'views/account_exogenus_concept_account_view.xml',
+        'wizard/account_exogenus_print_reports_view.xml',
+        'wizard/account_exogenus_column_account.xml',
+        'wizard/account_exogenus_concept_account.xml',
+        'views/account_exogenus_menu_view.xml',
+    ],
+}

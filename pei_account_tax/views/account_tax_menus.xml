@@ -1,0 +1,109 @@
+<odoo>
+    <data>
+        <menuitem id="pei_account_tax" 
+            name="Impuestos" 
+            parent="account_accountant.menu_accounting"
+            sequence="5" 
+            groups="pei_financial.group_security_tax_admin"/>
+
+        <record id="account_pei_tax_hierarchy_parents_action" model="ir.actions.act_window">
+            <field name="name">Jerarquia impuestos</field>
+            <field name="res_model">account.tax.hierarchy</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+        </record>
+        
+        <menuitem id="pei_action_tax_form" 
+            name="Impuestos" 
+            parent="pei_account_tax"
+            action="account.action_tax_form"
+            sequence="2"
+            groups="base.group_user"/>
+        
+        <menuitem id="pei_account_tax_confi" 
+            name="Configuración" 
+            parent="pei_account_tax"
+            sequence="3"
+            groups="base.group_user"/>
+        
+        <menuitem id="pei_account_tax_colombian_reports" 
+            name="Declaraciones Colombianas" 
+            parent="pei_account_tax"
+            sequence="4"
+            groups="base.group_user"/>
+        
+        <menuitem 
+            id="menu_pei_action_account_report_ica"
+            name="Certificado de Retención en ICA"
+            action="l10n_co_reports.action_account_report_ica"
+            sequence="1"
+            parent="pei_account_tax_colombian_reports"/>
+        
+        <menuitem 
+            id="menu_pei_action_account_report_iva"
+            name="Certificado de Retención en IVA"
+            action="l10n_co_reports.action_account_report_iva"
+            sequence="2"
+            parent="pei_account_tax_colombian_reports"/>
+        
+        <menuitem 
+            id="menu_pei_action_account_report_fuente"
+            name="Certificado de Retención en Fuente"
+            action="l10n_co_reports.action_account_report_fuente"
+            sequence="3"
+            parent="pei_account_tax_colombian_reports"/>
+        
+        <menuitem 
+            id="menu_pei_account_report_gt"
+            name="Reporte de Impuestos"
+            action="account_reports.action_account_report_gt"
+            sequence="5"
+            parent="pei_account_tax"/>
+        
+        <menuitem 
+            id="menu_pei_tax_hierarchy_parents_action"
+            name="Jerarquía de Impuestos"
+            action="account_pei_tax_hierarchy_parents_action"
+            sequence="1"
+            parent="pei_account_tax_confi"/>
+        
+        <menuitem 
+            id="menu_pei_action_view_tax_units"
+            name="Unidades Tributarias"
+            action="account_reports.action_view_tax_units"
+            sequence="2"
+            parent="pei_account_tax_confi"/>
+        
+        <menuitem 
+            id="menu_pei_action_tax_group"
+            name="Grupos de Impuestos"
+            action="account.action_tax_group"
+            sequence="3"
+            parent="pei_account_tax_confi"/>
+        
+        <menuitem
+            id="menu_pei_action_account_fiscal_position_form"
+            action="account.action_account_fiscal_position_form"
+            name="Posiciones Fiscales"
+            sequence="4"
+            parent="pei_account_tax_confi"/>
+        
+        <menuitem
+            id="menu_tax_apportionment_root"
+            name="IVA y Prorrateo"
+            sequence="6"
+            parent="pei_account_tax"/>
+        
+        <menuitem
+            id="menu_tax_apportionment_setting"
+            name="Configuración Prorrateo de IVA"
+            sequence="20"
+            parent="menu_tax_apportionment_root"/>
+        
+        <menuitem
+            id="menu_tax_ica_retention_root"
+            name="ICA y Retención de ICA"
+            sequence="7"
+            parent="pei_account_tax"/>
+    </data>
+</odoo>

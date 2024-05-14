@@ -1,0 +1,54 @@
+<odoo>
+    <data noupdate="1">
+        <record model="account.exogenus.formats.columns.sequence" id="column_1005_3">
+            <field name="account_format_column_id" ref="line_1005_3"/>
+            <field name="exogenus_format_id" ref="format_1005"/>
+            <field name="sequence">0</field>
+        </record>
+        <record model="account.exogenus.formats.columns.sequence" id="column_1005_8">
+            <field name="account_format_column_id" ref="line_1005_8"/>
+            <field name="exogenus_format_id" ref="format_1005"/>
+            <field name="sequence">1</field>
+        </record>
+        <record model="account.exogenus.formats.columns.sequence" id="column_1005_10">
+            <field name="account_format_column_id" ref="line_1005_10"/>
+            <field name="exogenus_format_id" ref="format_1005"/>
+            <field name="sequence">2</field>
+        </record>
+        <record model="account.exogenus.formats.columns.sequence" id="column_1005_4">
+            <field name="account_format_column_id" ref="line_1005_4"/>
+            <field name="exogenus_format_id" ref="format_1005"/>
+            <field name="sequence">3</field>
+        </record>
+        <record model="account.exogenus.formats.columns.sequence" id="column_1005_5">
+            <field name="account_format_column_id" ref="line_1005_5"/>
+            <field name="exogenus_format_id" ref="format_1005"/>
+            <field name="sequence">4</field>
+        </record>
+        <record model="account.exogenus.formats.columns.sequence" id="column_1005_6">
+            <field name="account_format_column_id" ref="line_1005_6"/>
+            <field name="exogenus_format_id" ref="format_1005"/>
+            <field name="sequence">5</field>
+        </record>
+        <record model="account.exogenus.formats.columns.sequence" id="column_1005_7">
+            <field name="account_format_column_id" ref="line_1005_7"/>
+            <field name="exogenus_format_id" ref="format_1005"/>
+            <field name="sequence">6</field>
+        </record>
+        <record model="account.exogenus.formats.columns.sequence" id="column_1005_9">
+            <field name="account_format_column_id" ref="line_1005_9"/>
+            <field name="exogenus_format_id" ref="format_1005"/>
+            <field name="sequence">7</field>
+        </record>
+        <record model="account.exogenus.formats.columns.sequence" id="column_1005_1">
+            <field name="account_format_column_id" ref="line_1005_1"/>
+            <field name="exogenus_format_id" ref="format_1005"/>
+            <field name="sequence">8</field>
+        </record>
+        <record model="account.exogenus.formats.columns.sequence" id="column_1005_2">
+            <field name="account_format_column_id" ref="line_1005_2"/>
+            <field name="exogenus_format_id" ref="format_1005"/>
+            <field name="sequence">9</field>
+        </record>
+    </data>
+</odoo>

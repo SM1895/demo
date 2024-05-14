@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="account_tax_hierarchy_view_tree" model="ir.ui.view">
+        <field name="name">account.tax.hierarchy.view.tree</field>
+        <field name="model">account.tax.hierarchy</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="parent_tax_id" />
+                <field name="method" />
+                <field name="child_tax_id" />
+                <field name="amount" />
+                <field name="ciiu_ids" widget="many2many_tags"/>
+                <field name="city_id" />
+            </tree>
+        </field>    
+    </record>   
+
+    <record id="account_tax_hierarchy_view_form" model="ir.ui.view">
+        <field name="name">account.tax.hierarchy.view.form</field>
+        <field name="model">account.tax.hierarchy</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="parent_tax_id" />
+                            <field name="method" />
+                            <field name="detailed_type"/>
+                        </group>
+                        <group>
+                            <field name="child_tax_id" />
+                            <field name="amount" />
+                            <field name="ciiu_ids" widget="many2many_tags" attrs="{'invisible':[('method', '!=', 'ica')], 'required':[('method', '=', 'ica')]}"/>
+                            <field name="city_id" attrs="{'invisible':[('method', '!=', 'ica')], 'required':[('method', '=', 'ica')]}"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="account_tax_hierarchy_parents_action" model="ir.actions.act_window">
+        <field name="name">Jerarquia impuestos</field>
+        <field name="res_model">account.tax.hierarchy</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('child_tax_id', '=', active_id)]</field>
+        <field name="context">{}</field>
+    </record>
+        <record id="account_tax_hierarchy_children_action" model="ir.actions.act_window">
+        <field name="name">Jerarquia impuestos</field>
+        <field name="res_model">account.tax.hierarchy</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('parent_tax_id', '=', active_id)]</field>
+        <field name="context">{}</field>
+    </record>
+</odoo>

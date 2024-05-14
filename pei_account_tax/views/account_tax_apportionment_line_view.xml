@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="account_tax_apportionment_group_line_view_form" model="ir.ui.view">
+        <field name="name">account.tax.apportionment.line.view.form</field>
+        <field name="model">account.tax.apportionment.line</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="apportionment_group_id" attrs="{'invisible': [('apportionment_type', '=', 'iva')]}"/>
+                        <label for="apportionment_iva_id" attrs="{'invisible': [('apportionment_type', '=', 'income')]}"/>
+                        <h1>
+                            <field name="apportionment_group_id" attrs="{'invisible': [('apportionment_type', '=', 'iva')]}" readonly="1"/>
+                            <field name="apportionment_iva_id" attrs="{'invisible': [('apportionment_type', '=', 'income')]}" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="amount_moves" readonly="1"/>
+                            <field name="apportionment_type" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="percentage" readonly="1" widget="percentage"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string='Movimientos Contables'>
+                            <field name='detail_ids'>
+                                <tree editable="bottom" create="false" delete="false">
+                                    <field name='not_in_balance'/>
+                                    <field name='date'/>
+                                    <field name='move_id'/>
+                                    <field name='account_id'/>
+                                    <field name='partner_id'/>
+                                    <field name='debit' sum="total"/>
+                                    <field name='credit' sum="total"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

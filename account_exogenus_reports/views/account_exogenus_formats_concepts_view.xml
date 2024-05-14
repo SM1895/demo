@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="account_exogenus_formats_concepts_view_form">
+        <field name="name">account.exogenus.formats.concepts.view.form</field>
+        <field name="model">account.exogenus.formats.concepts</field>
+        <field eval="3" name="priority"/>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button string="select account" type="object" class="oe_highlight" name="action_select_account"></button>
+                </header>
+                <sheet>
+                    <div class="oe_title pr-0">
+                        <label for='name'>name</label>
+
+                        <h2>
+                            <field name="name" required="1"/>
+                        </h2>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="company_id"/>
+                        </group>
+                        <group>
+                            <field name="exogenus_format_id"/>
+                            <field name="description"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="info_concept_account" string="Concepts Account">
+                            <field name="concept_exogenus_account_ids">
+                                <tree editable="botttom">
+                                    <field name="account_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="account_exogenus_formats_concepts_tree_view" model="ir.ui.view">
+        <field name="name">account.exogenus.formats.concepts.tree.view</field>
+        <field name="model">account.exogenus.formats.concepts</field>
+        <field eval="101" name="priority"/>
+        <field name="arch" type="xml">
+            <tree string="Exogenus Format Concepts">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="exogenus_format_id"/>
+                <field name="company_id" invisible="0"/>
+            </tree>
+        </field>
+    </record>
+    <record id="account_exogenus_formats_concepts_view_search" model="ir.ui.view">
+        <field name="name">account.exogenus.formats.concepts.search</field>
+        <field name="model">account.exogenus.formats.concepts</field>
+        <field name="arch" type="xml">
+            <search string="Search Concepts Exogenus">
+                <field name="name"/>
+                <field name="code"/>
+
+                <group expand="0" string="Group By">
+                    <filter string="Format" name="exogenus_format_id" context="{'group_by': 'exogenus_format_id'}"></filter>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="account_exogenus_format_concepts_action" model="ir.actions.act_window">
+        <field name="name">Format Exogenus Concepts</field>
+        <field name="res_model">account.exogenus.formats.concepts</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

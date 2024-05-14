@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>   
+    <record id="pei_account_tax_account_fiscal_position_view_form_view" model="ir.ui.view">
+        <field name="name">pei.account.tax.account.fiscal.position.view.form.view</field>
+        <field name="model">account.fiscal.position</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="account.view_account_position_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="is_retention"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

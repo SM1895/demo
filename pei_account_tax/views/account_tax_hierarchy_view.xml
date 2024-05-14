@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pei_account_tax_hierarchy_view_form_inherit" model="ir.ui.view">
+        <field name="name">pei.account.tax.hierarchy.view.form.inherit</field>
+        <field name="model">account.tax.hierarchy</field>
+        <field name="inherit_id" ref="l10n_co_tax.account_tax_hierarchy_view_form"/>
+        <field name="arch" type="xml">
+            <field name="amount" position="before">
+                <field name="ica_child_tax_id" attrs="{'invisible': [('method', '!=', 'sobreica')]}" domain="[('on_tax_ica', '=', True)]"/>
+            </field>
+            <field name="child_tax_id" position="replace">
+                <field name="child_tax_id" attrs="{'invisible': [('method', '=', 'sobreica')]}"/>
+            </field>
+        </field>    
+    </record>  
+</odoo>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="account_exogenus_formats_columns_view_form">
+        <field name="name">account.exogenus.formats.columns.view.form</field>
+        <field name="model">account.exogenus.formats.columns</field>
+        <field eval="3" name="priority"/>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button string="select account" type="object" class="oe_highlight" name="action_select_account" attrs="{'invisible': [('column_account', '!=' , True)]}"></button>
+                </header>
+                <sheet>
+                    <div class="oe_title pr-0">
+                        <label for='name'>name</label>
+
+                        <h2>
+                            <field name="name" required="1"/>
+                        </h2>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="group_bool" widget="boolean_toggle"/>
+                            <field name="exogenus_format_id"/>
+                            <field name="column_account" />
+                            <field name="minior_amount"/>
+                            <field name="type_column"/>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                            <field name="condition_python" colspan="2" nolabel="1" widget="ace" options="{'mode':'python'}" style="font-size:80px;"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="info_account_column" string="Account Column" attrs="{'invisible': [('column_account', '=', False)]}">
+                            <field name="account_colums_ids">
+                                <tree editable="botttom">
+                                    <field name="account_id"/>
+                                    <field name="nature_account"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="account_exogenus_formats_columns_tree_view" model="ir.ui.view">
+        <field name="name">account.exogenus.formats.columns.tree.view</field>
+        <field name="model">account.exogenus.formats.columns</field>
+        <field eval="101" name="priority"/>
+        <field name="arch" type="xml">
+            <tree string="Exogenus Format">
+                <field name="name"/>
+                <field name="description"/>
+                <field name="exogenus_format_id"/>
+                <field name="company_id" invisible="0"/>
+            </tree>
+        </field>
+    </record>
+    <record id="ccount_exogenus_formats_columns_view_search" model="ir.ui.view">
+        <field name="name">ccount.exogenus.formats.columns.search</field>
+        <field name="model">account.exogenus.formats.columns</field>
+        <field name="arch" type="xml">
+            <search string="Search Concepts Exogenus">
+                <field name="name"/>
+                <group expand="0" string="Group By">
+                    <filter string="Format" name="exogenus_format_id" context="{'group_by': 'exogenus_format_id'}"></filter>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="account_exogenus_formats_columns_action" model="ir.actions.act_window">
+        <field name="name">Format Columns Exogenus</field>
+        <field name="res_model">account.exogenus.formats.columns</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
