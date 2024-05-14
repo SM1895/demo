@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   
+    <record id="ir_cron_validate_bondholders_fork" model="ir.cron">
+        <field name="name">Validar Tenedores de Bonos </field>
+        <field name="model_id" ref="model_res_partner" />
+        <field name="state">code</field>
+        <field name="code">model.cron_validate_bondholders_fork()</field>
+        <field name="active" eval="1" />
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="doall" eval="False" />
+    </record>
+
+    <record id="ir_cron_validate_bondholders_investor" model="ir.cron">
+        <field name="name">Validar Inversionistas</field>
+        <field name="model_id" ref="model_res_partner" />
+        <field name="state">code</field>
+        <field name="code">model.cron_validate_bondholders_investor()</field>
+        <field name="active" eval="1" />
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="doall" eval="False" />
+    </record>
+
+    <record id="ir_cron_contract_administration_tenants" model="ir.cron">
+        <field name="name">Validar Arrendatarios</field>
+        <field name="model_id" ref="model_res_partner" />
+        <field name="state">code</field>
+        <field name="code">model.cron_contract_administration_tenants()</field>
+        <field name="active" eval="1" />
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="doall" eval="False" />
+    </record>
+
+</odoo>

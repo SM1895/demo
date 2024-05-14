@@ -21,8 +21,6 @@
         'l10n_co_tax',
         "l10n_co_partner",
         'base_address_extended',
-        'pei_account_analytic',
-        'pei_financial',
         'purchase',
     ],
     # always loaded

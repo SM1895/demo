@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="view_country_tree_inherit">
+        <field name="name">l10n_co_partner.res.country.tree</field>
+        <field name="model">res.country</field>
+        <field name="inherit_id" ref="base.view_country_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='code']" position="after">
+                <field name="dian_code" string="Código DIAN"/>
+                <field name="co_address" widget="boolean_toggle"/>
+            </xpath>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_country_form_inherit">
+        <field name="name">l10n_co_partner.res.country.form</field>
+        <field name="model">res.country</field>
+        <field name="inherit_id" ref="base.view_country_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='code']" position="after">
+                <field name="dian_code" string="Código DIAN"/>
+            </xpath>
+            <xpath expr="//field[@name='address_view_id']/.." position="after">
+                <label for="co_address"/>
+                <div class="o_row">
+                    <field name="co_address" widget="boolean_toggle"/>
+                    <div name="div_address_format ms-2" class="text-muted">Muestra dirección en formulario de contactos con estructura de direcciones de Colombia </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+    <record id="action_co_address" model="ir.actions.server">
+        <field name="name">Activar/Desactivar Estructura Dirección Colombia</field>
+        <field name="model_id" ref="base.model_res_country"/>
+        <field name="binding_model_id" ref="base.model_res_country"/>
+        <field name="binding_view_types">list,form</field>
+        <field name="state">code</field>
+        <field name="code">for country in records: country.write({"co_address": not(country.co_address)})</field>
+    </record>
+</odoo>

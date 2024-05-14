@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<odoo noupdate="1">
+    <record model="l10n_co.address.type" id="co_addresstype_main">
+        <field name="name">Principal</field>
+        <field name="position">1</field>
+    </record>
+    <record model="l10n_co.address.type" id="co_addresstype_letter">
+        <field name="name">Letra</field>
+        <field name="position">2</field>
+    </record>
+    <record model="l10n_co.address.type" id="co_addresstype_cardinal">
+        <field name="name">Cardinal</field>
+        <field name="position">3</field>
+    </record>
+<!--     <record model="l10n_co.address.type" id="co_addresstype_complement">
+        <field name="name">Complemento</field>
+    </record> -->
+    <record model="l10n_co.address.type" id="co_addresstype_place">
+        <field name="name">Lugar</field>
+        <field name="position">4</field>
+    </record>
+    
+    <record id="co_address_av" model="l10n_co.address">
+        <field name="abbreviation">AV</field>
+        <field name="name">Avenida</field>
+        <field name="type_id" ref="co_addresstype_main"/>
+    </record>
+    <record id="co_address_cl" model="l10n_co.address">
+        <field name="abbreviation">CL</field>
+        <field name="name">Calle</field>
+        <field name="type_id" ref="co_addresstype_main"/>
+    </record>
+    <record id="co_address_cr" model="l10n_co.address">
+        <field name="abbreviation">CR</field>
+        <field name="name">Carrera</field>
+        <field name="type_id" ref="co_addresstype_main"/>
+    </record>
+    <record id="co_address_dg" model="l10n_co.address">
+        <field name="abbreviation">DG</field>
+        <field name="name">Diagonal</field>
+        <field name="type_id" ref="co_addresstype_main"/>
+    </record>
+    <record id="co_address_tv" model="l10n_co.address">
+        <field name="abbreviation">TV</field>
+        <field name="name">Transversal</field>
+        <field name="type_id" ref="co_addresstype_main"/>
+    </record>
+    <record id="co_address_ap" model="l10n_co.address">
+        <field name="abbreviation">AP</field>
+        <field name="name">Autopista</field>
+        <field name="type_id" ref="co_addresstype_main"/>
+    </record>
+    <record id="co_address_a" model="l10n_co.address">
+        <field name="abbreviation">A</field>
+        <field name="name">A</field>
+        <field name="type_id" ref="co_addresstype_letter"/>
+    </record>
+    <record id="co_address_b" model="l10n_co.address">
+        <field name="abbreviation">B</field>
+        <field name="name">B</field>
+        <field name="type_id" ref="co_addresstype_letter"/>
+    </record>
+    <record id="co_address_c" model="l10n_co.address">
+        <field name="abbreviation">C</field>
+        <field name="name">C</field>
+        <field name="type_id" ref="co_addresstype_letter"/>
+    </record>
+    <record id="co_address_d" model="l10n_co.address">
+        <field name="abbreviation">D</field>
+        <field name="name">D</field>
+        <field name="type_id" ref="co_addresstype_letter"/>
+    </record>
+    <record id="co_address_e" model="l10n_co.address">
+        <field name="abbreviation">E</field>
+        <field name="name">E</field>
+        <field name="type_id" ref="co_addresstype_letter"/>
+    </record>
+    <record id="co_address_f" model="l10n_co.address">
+        <field name="abbreviation">F</field>
+        <field name="name">F</field>
+        <field name="type_id" ref="co_addresstype_letter"/>
+    </record>
+    <record id="co_address_g" model="l10n_co.address">
+        <field name="abbreviation">G</field>
+        <field name="name">G</field>
+        <field name="type_id" ref="co_addresstype_letter"/>
+    </record>
+    <record id="co_address_h" model="l10n_co.address">
+        <field name="abbreviation">H</field>
+        <field name="name">H</field>
+        <field name="type_id" ref="co_addresstype_letter"/>
+    </record>
+    <record id="co_address_bis" model="l10n_co.address">
+        <field name="abbreviation">BIS</field>
+        <field name="name">Bis</field>
+        <field name="type_id" ref="co_addresstype_letter"/>
+    </record>
+    <record id="co_address_sur" model="l10n_co.address">
+        <field name="abbreviation">SUR</field>
+        <field name="name">Sur</field>
+        <field name="type_id" ref="co_addresstype_cardinal"/>
+    </record>
+    <record id="co_address_norte" model="l10n_co.address">
+        <field name="abbreviation">NORTE</field>
+        <field name="name">Norte</field>
+        <field name="type_id" ref="co_addresstype_cardinal"/>
+    </record>
+    <record id="co_address_este" model="l10n_co.address">
+        <field name="abbreviation">ESTE</field>
+        <field name="name">Este</field>
+        <field name="type_id" ref="co_addresstype_cardinal"/>
+    </record>
+    <record id="co_address_oeste" model="l10n_co.address">
+        <field name="abbreviation">OESTE</field>
+        <field name="name">Oeste</field>
+        <field name="type_id" ref="co_addresstype_cardinal"/>
+    </record>
+        <record model="l10n_co.address" id="co_address_int">
+        <field name="abbreviation">INT</field>
+        <field name="name">Interior</field>
+        <field name="type_id" ref="co_addresstype_place"/>
+    </record>
+    <record model="l10n_co.address" id="co_address_of">
+        <field name="abbreviation">OF</field>
+        <field name="name">Oficina</field>
+        <field name="type_id" ref="co_addresstype_place"/>
+    </record>
+    <record model="l10n_co.address" id="co_address_lc">
+        <field name="abbreviation">LC</field>
+        <field name="name">Local</field>
+        <field name="type_id" ref="co_addresstype_place"/>
+    </record>
+    <record model="l10n_co.address" id="co_address_blq">
+        <field name="abbreviation">BLQ</field>
+        <field name="name">Bloque</field>
+        <field name="type_id" ref="co_addresstype_place"/>
+    </record>
+    <record model="l10n_co.address" id="co_address_tor">
+        <field name="abbreviation">TOR</field>
+        <field name="name">Torre</field>
+        <field name="type_id" ref="co_addresstype_place"/>
+    </record>
+</odoo>

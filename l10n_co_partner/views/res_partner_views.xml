@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_form_inherit" model="ir.ui.view">
+        <field name="name">l10n_co_partner.res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="priority">101</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <!-- <xpath expr="//sheet/group/group/div[hasclass('o_address_format')]" position="replace"> -->
+            <!--             <xpath expr="/form/sheet/group/group/div[hasclass('o_address_format')][1]" position="replace">
+                <div class="o_address_format">
+                    <field name="country_enforce_cities" invisible="1"/>
+                    <field name="street" placeholder="Street..." class="o_address_street" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                    <field name="street2" placeholder="Street 2..." class="o_address_street" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                    <field name="country_id" placeholder="Country" class="o_address_country" options="{'no_open': True, 'no_create': True}" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                    <field name="state_id" class="o_address_state" placeholder="State" options="{'no_open': True, 'no_quick_create': True}" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" context="{'country_id': country_id, 'default_country_id': country_id, 'zip': zip}"/>
+                    <field name="city_id" placeholder="City" class="o_address_city" domain="[('country_id', '=', country_id)]" attrs="{'invisible': [('country_enforce_cities', '=', False)], 'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" context="{'default_country_id': country_id, 'default_state_id': state_id, 'default_zipcode': zip}"/>
+                    <field name="city" placeholder="City" class="o_address_city" attrs="{'invisible': [('country_enforce_cities', '=', True), '|', ('city_id', '!=', False), ('city', 'in', ('',False))], 'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                    <field name="zip" placeholder="ZIP" class="o_address_zip" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                </div>
+            </xpath>
+            <xpath expr="//div[@name='div_address']" position="replace">
+                <div class="o_address_format">
+                    <field name="street" placeholder="Street..." class="o_address_street"/>
+                    <field name="street2" placeholder="Street 2..." class="o_address_street"/>
+                    <field name="country_id" placeholder="Country" class="o_address_country" options='{"no_open": True, "no_create": True}'/>
+                    <field name="state_id" class="o_address_state" placeholder="State" options="{'no_open': True, 'no_quick_create': True}" context="{'country_id': country_id, 'default_country_id': country_id, 'zip': zip}"/>
+                    <field name="city_id" class="o_address_city" placeholder="City" attrs="{'invisible': [('country_enforce_cities', '=', False)]}" options="{'no_open': True, 'no_quick_create': True}" context="{'default_country_id': country_id, 'default_state_id': state_id, 'default_zipcode': zip}"/>
+                    <field name="city" placeholder="City" class="o_address_city" attrs="{'invisible': [('country_enforce_cities', '=', True), '|', ('city_id', '!=', False), ('city', 'in', ('',False))]}"/>
+                    <field name="zip" placeholder="ZIP" class="o_address_zip"/>
+                </div>
+            </xpath> -->
+            <xpath expr="//field[@name='street']" position="attributes">
+                <attribute name="attrs">{'readonly': [('co_address', '=', True)]}</attribute>
+            </xpath>
+            <xpath expr="//div[hasclass('o_address_format')]/field[@name='street']" position="before">
+                <field name="co_address" invisible="1"/>
+                <div class="o_row" attrs="{'invisible': [('co_address', '!=', True)]}">
+                    <field name="co_street_1" style="width:11% !important;" domain="[('type_id.position','=', '1')]" options="{'no_open': True, 'no_create': True}" placeholder="Calle"/>
+                    <field name="co_street_2" style="max-width:9% !important" placeholder="4"/>
+                    <field name="co_street_3" domain="[('type_id.position','=', '2')]" options="{'no_open': True, 'no_create': True}" placeholder="A"/>
+                    <field name="co_street_4" domain="[('type_id.position','=', '2')]" options="{'no_open': True, 'no_create': True}" placeholder="BIS"/>
+                    <field name="co_street_5" domain="[('type_id.position','=', '3')]" options="{'no_open': True, 'no_create': True}" placeholder="Sur"/>
+                </div>
+                <div class="o_row" attrs="{'invisible': [('co_address', '!=', True)]}">
+                    <span> No. </span>
+                    <field name="co_street_6" style="max-width:9% !important" placeholder="8"/>
+                    <field name="co_street_7" domain="[('type_id.position','=', '2')]" options="{'no_open': True, 'no_create': True}" placeholder="A"/>
+                    <field name="co_street_8" domain="[('type_id.position','=', '3')]" options="{'no_open': True, 'no_create': True}" placeholder="Este"/>
+                    <span> - </span>
+                    <field name="co_street_9" style="max-width:9% !important" placeholder="19"/>
+                    <field name="co_street_10" domain="[('type_id.position','=', '2')]" options="{'no_open': True, 'no_create': True}" placeholder="Este"/>
+                </div>
+                <div class="o_row" attrs="{'invisible': [('co_address', '!=', True)]}">
+                    <field name="co_street_11" domain="[('type_id.position','=', '4')]" options="{'no_open': True, 'no_create': True}" placeholder="Bloque"/>
+                    <field name="co_street_12" attrs="{'required': [('co_street_11', '!=', False)]}" placeholder="a"/>
+                </div>
+                <div class="o_row" attrs="{'invisible': [('co_address', '!=', True)]}">
+                    <field name="co_street_13" domain="[('type_id.position','=', '4')]" options="{'no_open': True, 'no_create': True}" placeholder="Piso"/>
+                    <field name="co_street_14" attrs="{'required': [('co_street_13', '!=', False)]}" placeholder="3"/>
+                </div>
+                <div class="o_row" attrs="{'invisible': [('co_address', '!=', True)]}">
+                    <field name="co_street_15" domain="[('type_id.position','=', '4')]" options="{'no_open': True, 'no_create': True}" placeholder="Al lado"/>
+                    <field name="co_street_16" attrs="{'required': [('co_street_15', '!=', False)]}" placeholder="del bar"/>
+                </div>
+            </xpath>
+            <xpath expr="//div[@name='div_address']/field[@name='street']" position="before">
+                <field name="co_address" invisible="1"/>
+                <div class="o_row" attrs="{'invisible': [('co_address', '=', False)]}">
+                    <field name="co_street_1" style="width:11% !important;" domain="[('type_id.position','=', '1')]" options="{'no_open': True, 'no_create': True}" placeholder="Calle"/>
+                    <field name="co_street_2" style="max-width:9% !important" placeholder="4"/>
+                    <field name="co_street_3" domain="[('type_id.position','=', '2')]" options="{'no_open': True, 'no_create': True}" placeholder="A"/>
+                    <field name="co_street_4" domain="[('type_id.position','=', '2')]" options="{'no_open': True, 'no_create': True}" placeholder="BIS"/>
+                    <field name="co_street_5" domain="[('type_id.position','=', '3')]" options="{'no_open': True, 'no_create': True}" placeholder="Sur"/>
+                </div>
+                <div class="o_row" attrs="{'invisible': [('co_address', '=', False)]}">
+                    <span> No. </span>
+                    <field name="co_street_6" style="max-width:9% !important" placeholder="8"/>
+                    <field name="co_street_7" domain="[('type_id.position','=', '2')]" options="{'no_open': True, 'no_create': True}" placeholder="A"/>
+                    <field name="co_street_8" domain="[('type_id.position','=', '3')]" options="{'no_open': True, 'no_create': True}" placeholder="Este"/>
+                    <span> - </span>
+                    <field name="co_street_9" style="max-width:9% !important" placeholder="19"/>
+                    <field name="co_street_10" domain="[('type_id.position','=', '2')]" options="{'no_open': True, 'no_create': True}" placeholder="Este"/>
+                </div>
+                <div class="o_row" attrs="{'invisible': [('co_address', '=', False)]}">
+                    <field name="co_street_11" domain="[('type_id.position','=', '4')]" options="{'no_open': True, 'no_create': True}" placeholder="Bloque"/>
+                    <field name="co_street_12" attrs="{'required': [('co_street_11', '!=', False)]}" placeholder="a"/>
+                </div>
+                <div class="o_row" attrs="{'invisible': [('co_address', '=', False)]}">
+                    <field name="co_street_13" domain="[('type_id.position','=', '4')]" options="{'no_open': True, 'no_create': True}" placeholder="Piso"/>
+                    <field name="co_street_14" attrs="{'required': [('co_street_13', '!=', False)]}" placeholder="3"/>
+                </div>
+                <div class="o_row" attrs="{'invisible': [('co_address', '=', False)]}">
+                    <field name="co_street_15" domain="[('type_id.position','=', '4')]" options="{'no_open': True, 'no_create': True}" placeholder="Al lado"/>
+                    <field name="co_street_16" attrs="{'required': [('co_street_15', '!=', False)]}" placeholder="del bar"/>
+                </div>
+
+            </xpath>
+            <xpath expr="//field[@name='l10n_latam_identification_type_id']/.." position="after">
+                <field name="dv_required" invisible="1"/>
+                <field name="main_ciiu_id" options="{'no_open': True, 'no_create': True}"/>
+                <field name="other_ciiu_id" options="{'no_open': True, 'no_create': True}"/>
+            </xpath>
+            <xpath expr="//field[@name='l10n_latam_identification_type_id']/.." position="replace">
+                <div class="o_row" style="width:100% !important;">
+                    <field name="l10n_latam_identification_type_id" options="{'no_open': True, 'no_create': True}" placeholder="Type" attrs="{'readonly': [('parent_id','!=',False)]}" domain="country_id and ['|', ('country_id', '=', False), ('country_id', '=', country_id)] or []" required="True"/>
+                    <span attrs="{'invisible': [('vat', '=', False)]}"> - </span>
+                    <field name="vat" placeholder="Number" attrs="{'readonly': [('parent_id','!=',False)]}" required="True"/>
+                    <span attrs="{'invisible': [('dv', '=', False)]}"> DV </span>
+                    <field name="dv" style="max-width:2%" attrs="{'invisible':[('dv_required', '=', False)]}"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_partner_latam_form" model="ir.ui.view">
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="before">
+                <field name="checked" invisible="1"/>
+            </field>
+
+        </field>
+    </record>
+
+    <record id="view_res_partner_filter" model="ir.ui.view">
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <field name="name" position="before">
+                <field name="checked" />
+            </field>
+            <filter name="inactive" position="before">
+                <filter name="checked" string="Comprobar" domain="[('checked', '=', True)]" />
+            </filter>
+        </field>
+    </record>
+
+</odoo>
