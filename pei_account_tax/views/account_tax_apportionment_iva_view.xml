@@ -20,7 +20,7 @@
                             <field 
                                 name="accounts_ids"
                                 widget="many2many_tags"
-                                domain="[('is_title', '=', True), ('account_type', 'in', ('liability_payable', 'liability_credit_card', 'liability_current', 'liability_non_current', 'asset_receivable', 'asset_cash', 'asset_current', 'asset_non_current', 'asset_prepayments', 'asset_fixed'))]"/>
+                                domain="[('account_type', 'in', ('liability_payable', 'liability_credit_card', 'liability_current', 'liability_non_current', 'asset_receivable', 'asset_cash', 'asset_current', 'asset_non_current', 'asset_prepayments', 'asset_fixed'))]"/>
                         </group>
                     </group>
                 </sheet>
@@ -43,7 +43,7 @@
                 <field
                     name="accounts_ids"
                     widget="many2many_tags"
-                    domain="[('is_title', '=', True), ('account_type', 'in', ('liability_payable', 'liability_credit_card', 'liability_current', 'liability_non_current', 'asset_receivable', 'asset_cash', 'asset_current', 'asset_non_current', 'asset_prepayments', 'asset_fixed'))]"/>
+                    domain="[('account_type', 'in', ('liability_payable', 'liability_credit_card', 'liability_current', 'liability_non_current', 'asset_receivable', 'asset_cash', 'asset_current', 'asset_non_current', 'asset_prepayments', 'asset_fixed'))]"/>
                 <button name="action_read_group" string="Configurar" type="object" class="float-end btn-secondary"/> 
             </tree>
         </field>

@@ -15,8 +15,8 @@
                     </div>
                     <group>
                         <group>
-                            <field name="partner_account_id" required="1" domain="[('is_title', '=', True)]"/>
-                            <field name="payable_account_id" required="1" domain="[('is_title', '=', True)]"/>
+                            <field name="partner_account_id" required="1" />
+                            <field name="payable_account_id" required="1" />
                         </group>
                         <group>
                             <field name="journal_id" required="1"/>

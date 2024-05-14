@@ -15,8 +15,8 @@
                     </div>
                     <group>
                         <group>
-                            <field name="account_tax_id" required="1" domain="[('is_title', '=', True), ('account_type', 'in', ('liability_payable', 'liability_credit_card', 'liability_current', 'liability_non_current'))]"/>
-                            <field name="expense_account_id" required="1" domain="[('is_title', '=', True), ('account_type', 'in', ('expense', 'expense_depreciation', 'expense_direct_cost'))]"/>
+                            <field name="account_tax_id" required="1" domain="[('account_type', 'in', ('liability_payable', 'liability_credit_card', 'liability_current', 'liability_non_current'))]"/>
+                            <field name="expense_account_id" required="1" domain="[('account_type', 'in', ('expense', 'expense_depreciation', 'expense_direct_cost'))]"/>
                         </group>
                         <group>
                             <field name="journal_id" required="1"/>
