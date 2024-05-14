@@ -7,7 +7,7 @@
         <field name="inherit_id" ref="account.view_account_form"/>
         <field name="arch" type="xml">
             <field name="deprecated" position="before">
-                <field name="apply_retention_income_tax" attrs="{'invisible': [('is_title', '=', False)]}"/>
+                <field name="apply_retention_income_tax" />
             </field>
         </field>
     </record>
