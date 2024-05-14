@@ -4,7 +4,7 @@
             name="Impuestos" 
             parent="account_accountant.menu_accounting"
             sequence="5" 
-            groups="pei_financial.group_security_tax_admin"/>
+            />
 
         <record id="account_pei_tax_hierarchy_parents_action" model="ir.actions.act_window">
             <field name="name">Jerarquia impuestos</field>
