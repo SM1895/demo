@@ -18,7 +18,7 @@
                             <field 
                                 name="accounts_ids" 
                                 widget="many2many_tags" 
-                                domain="[('is_title', '=', True), ('account_type', 'in', ('liability_payable', 'liability_credit_card', 'liability_current', 'liability_non_current', 'income', 'income_other'))]"/>
+                                domain="[('account_type', 'in', ('liability_payable', 'liability_credit_card', 'liability_current', 'liability_non_current', 'income', 'income_other'))]"/>
                             <field name="exclude_from_compute"/>
                         </group>
                     </group>
@@ -42,7 +42,7 @@
                 <field 
                     name="accounts_ids" 
                     widget="many2many_tags" 
-                    domain="[('is_title', '=', True), ('account_type', 'in', ('liability_payable', 'liability_credit_card', 'liability_current', 'liability_non_current', 'income', 'income_other'))]"/>
+                    domain="[('account_type', 'in', ('liability_payable', 'liability_credit_card', 'liability_current', 'liability_non_current', 'income', 'income_other'))]"/>
                 <field name="exclude_from_compute"/>
                 <button name="action_read_group" string="Configurar" type="object" class="float-end btn-secondary"/> 
             </tree>
