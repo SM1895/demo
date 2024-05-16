@@ -1,0 +1,76 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="account_asset_movements_tree">
+            <field name="name">account.asset.movements.tree</field>
+            <field name="model">account.asset.movements</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="asset_id" />
+                    <field name="movement_date" />
+                    <field name="movement_type" />
+                    <field name="account_asset_from_id" />
+                    <field name="account_asset_to_id" />
+                    <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="account_asset_movements_form">
+            <field name="name">account.asset.movements.form</field>
+            <field name="model">account.asset.movements</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <h1 class="col-6">
+                            <field name="name" placeholder="Name" required="True" />
+                        </h1>
+                        <group>
+                            <group string="Asset">
+                                <field name="asset_id" required="True" />
+                                <field name="movement_type" placeholder="Name" required="True" />
+                                <field name="movement_date" required="True" />
+                                <field name="reverse_date" required="True" />
+                            </group>
+                            <group string="Account">
+                                <field name="account_asset_from_id" required="True" />
+                                <field name="account_asset_to_id" required="True" />
+                                <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="Movements" string="Asientos">
+                                <field name="asset_movements_move_ids" mode="tree" options="{'reload_whole_on_button': true}">
+                                    <tree string="Depreciation Lines" decoration-info="state == 'draft'" create="0"  default_order="asset_clasification, asset_remaining_value desc" editable="top">
+                                        <field name="currency_id" invisible="1"/>
+                                        <field name="ref" invisible=""/>
+                                        <field name="reversal_move_id" widget="deprec_lines_reversed"/>
+                                        <field name="date" string="Depreciation Date"/>
+                                        <field name="amount_total" widget="monetary" string="Depreciation" options="{'currency_field': 'currency_id'}" attrs="{'readonly': [('state', '=', 'posted')]}"/>
+                                        <field name="asset_depreciated_value" readonly="1" force_save="1" options="{'currency_field': 'currency_id'}"/>
+                                        <field name="asset_remaining_value" readonly="1" widget="monetary" force_save="1" options="{'currency_field': 'currency_id'}"/>
+                                        <field name="name" readonly="1" string="Journal Entry"/>
+                                        <field name="state" invisible="1"/>
+                                        <field name="asset_clasification"/>
+                                        <field name="asset_manually_modified" invisible="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="account_asset_extended.asset_movements_accion">
+            <field name="name">Asset Movements</field>
+            <field name="res_model">account.asset.movements</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem name="Asset Movements" id="asset_movements_menu" parent="account.menu_finance_configuration" action="account_asset_extended.asset_movements_accion" />
+
+    </data>
+</odoo>

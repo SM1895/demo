@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <template id="report_invoice_document_for_asset" inherit_id="product.report_simple_barcode">
+            <xpath expr="//table/tr" position="after">
+                <t t-if="asset.account_analytic_id">
+                    <tr>
+                        <th class="table-active text-center" style="height: 4rem;">
+                            <t t-if="asset.account_analytic_id.code">
+                                <strong>[</strong><span t-field="asset.account_analytic_id.code"/><strong>] </strong><span t-field="asset.account_analytic_id.name"/>
+                            </t>
+                            <t t-else="">
+                                <span t-field="asset.account_analytic_id.name"/>
+                            </t>
+                        </th>
+                    </tr>
+                </t>
+            </xpath>
+        </template>
+
+
+        <report
+                id="report_asset_custom_file"
+                string="Codigo de barras del producto"
+                model="account.asset"
+                report_type="qweb-pdf"
+                name="account_asset_extended.report_asset_custom"
+                file="account_asset_extended.report_asset_custom"
+        />
+
+        <template id="report_asset_custom">
+            <t t-call="web.basic_layout">
+                <div class="page">
+                    <t t-foreach="docs" t-as="asset">
+                        <t t-foreach="asset.product_id" t-as="product">
+                            <t t-call="account_asset_extended.report_invoice_document_for_asset">
+                                <t t-set="product" t-value="product"/>
+                            </t>
+                        </t>
+                        <t t-if="not asset.product_id">
+                            <span><strong>NO HAY UN PRODUCTO RELACIONADO CON ESTE ACTIVO</strong></span>
+                        </t>
+                    </t>
+                </div>
+            </t>
+
+
+        </template>
+    </data>
+</odoo>
