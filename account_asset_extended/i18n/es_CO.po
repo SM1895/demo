@@ -1,0 +1,1076 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* account_asset_extended
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-11-26 16:03+0000\n"
+"PO-Revision-Date: 2020-11-26 16:03+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__total_depreciation_entries_count_niff
+msgid "# Depreciation Entries"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__gross_increase_count_niff
+msgid "# Gross Increases"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__depreciation_entries_count_niff
+msgid "# Posted Depreciation Entries"
+msgstr ""
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.report_asset_custom
+msgid ""
+"<span><strong>NO HAY UN PRODUCTO RELACIONADO CON ESTE ACTIVO</strong></span>"
+msgstr ""
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.report_invoice_document_for_asset
+msgid "<strong>CENTRO DE COSTOS: </strong>"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields.selection,name:account_asset_extended.selection__account_asset_modify_model__model_modification_type__both
+msgid "AMBOS"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields.selection,name:account_asset_extended.selection__account_asset__method_niff__degressive_then_linear
+msgid "Accelerated Degressive"
+msgstr "Acelerado Degresivo"
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.account_asset_movements_form
+msgid "Account"
+msgstr "Cuenta"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_asset_modify__account_asset_counterpart_id_niff
+msgid "Account Asset Counterpart Id Niff"
+msgstr "Contraparte del activo de la cuenta NIFF"
+
+#. module: account_asset_extended
+#: model:ir.model,name:account_asset_extended.model_account_assets_report_extended
+msgid "Account Assets Report"
+msgstr "Reporte de Activos"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_asset_modify__account_depreciation_expense_id_niff
+msgid "Account Depreciation Expense Id Niff"
+msgstr "Cuenta de amortización NIFF"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_asset_modify__account_depreciation_id_niff
+msgid "Account Depreciation Id Niff"
+msgstr "Cuenta de amortización NIFF"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,help:account_asset_extended.field_account_asset__user_type_id_niff
+#: model:ir.model.fields,help:account_asset_extended.field_account_asset_sell__user_type_id
+msgid ""
+"Account Type is used for information purpose, to generate country-specific "
+"legal reports, and set the rules to close a fiscal year and generate opening"
+" entries."
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,help:account_asset_extended.field_account_asset__account_depreciation_id_niff
+#: model:ir.model.fields,help:account_asset_extended.field_account_asset_sell__depreciation_account_id
+msgid "Account used in the depreciation entries, to decrease the asset value."
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,help:account_asset_extended.field_account_asset__account_depreciation_expense_id_niff
+msgid ""
+"Account used in the periodical entries, to record a part of the asset as "
+"expense."
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,help:account_asset_extended.field_account_asset__profit_account_id
+#: model:ir.model.fields,help:account_asset_extended.field_account_asset_valorization__profit_account_id
+msgid "Account used to record earnings."
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,help:account_asset_extended.field_account_asset__loss_account_id
+#: model:ir.model.fields,help:account_asset_extended.field_account_asset_valorization__loss_account_id
+msgid "Account used to record losses."
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,help:account_asset_extended.field_account_asset__account_asset_id_niff
+#: model:ir.model.fields,help:account_asset_extended.field_account_asset_sell__asset_account_id
+msgid ""
+"Account used to record the purchase of the asset at its original price."
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,help:account_asset_extended.field_account_asset_movements__account_asset_from_id
+#: model:ir.model.fields,help:account_asset_extended.field_account_asset_movements__account_asset_to_id
+msgid "Account where the asset used to be."
+msgstr ""
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.account_asset_extended_form
+msgid "Accounting"
+msgstr "Contabilidad"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__acquisition_date_niff
+msgid "Acquisition Date Niff"
+msgstr "Fecha de Adquisicion"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_sell__action
+msgid "Action"
+msgstr "Acción"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_dismantlement_wizard__amount
+msgid "Amount"
+msgstr "Total"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__account_analytic_id_niff
+msgid "Analytic Account"
+msgstr "Cuenta Analítica"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__analytic_tag_ids_niff
+msgid "Analytic Tag"
+msgstr "Etiqueta Analítica"
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.account_asset_movements_form
+msgid "Asientos"
+msgstr "Asientos"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_modify_model__asset_id
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_movements__asset_id
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_valorization__asset_id
+#: model:ir.model.fields,field_description:account_asset_extended.field_asset_modify__asset_id
+#: model:ir.model.fields,field_description:account_asset_extended.field_dismantlement_wizard__asset_id
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.account_asset_movements_form
+msgid "Asset"
+msgstr "Activo"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__asset_category
+msgid "Asset Category"
+msgstr "Categoria del Activo"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__asset_code
+msgid "Asset Code"
+msgstr "Codigo del Activo"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_asset_modify__account_asset_id_niff
+msgid "Asset Gross Increase Account"
+msgstr "Cuenta de aumento del activo"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_sell__model_id
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.account_asset_sell_inherited
+msgid "Asset Model"
+msgstr "Modelo del Activo"
+
+#. module: account_asset_extended
+#: model:ir.model,name:account_asset_extended.model_account_asset_modify_model
+msgid "Asset Model Modification"
+msgstr "Modificacion del Modelo del Activo"
+
+#. module: account_asset_extended
+#: model:ir.actions.act_window,name:account_asset_extended.asset_movements_accion
+#: model:ir.ui.menu,name:account_asset_extended.asset_movements_menu
+msgid "Asset Movements"
+msgstr "Movimientos del activo"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_pause__asset_pause_type
+msgid "Asset Pause Type"
+msgstr "Tipo"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_sell__asset_type
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_move__asset_clasification
+msgid "Asset Type"
+msgstr "Tipo"
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.asset_valorization_form
+msgid "Asset Valorization"
+msgstr "Avaluo del Activo"
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.account_asset_extended_form
+msgid "Asset Values"
+msgstr ""
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.account_asset_extended_form
+msgid "Asset data"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model,name:account_asset_extended.model_account_asset
+msgid "Asset/Revenue Recognition"
+msgstr "Aceptación de pagos/Ingresos"
+
+#. module: account_asset_extended
+#: model:ir.actions.client,name:account_asset_extended.action_account_report_assets_extended
+#: model:ir.ui.menu,name:account_asset_extended.menu_action_account_report_assets_extended
+msgid "Assets Report Extended"
+msgstr "Reporte Extendido Activos"
+
+#. module: account_asset_extended
+#: model:ir.model,name:account_asset_extended.model_account_asset_valorization
+msgid "Assets Valorization"
+msgstr "Avaluo de Activo"
+
+#. module: account_asset_extended
+#: model:ir.model,name:account_asset_extended.model_account_asset_movements
+msgid "Assets movements betwen asset accounts"
+msgstr "Movimientos entre Activos"
+
+#. module: account_asset_extended
+#: model:ir.model.fields.selection,name:account_asset_extended.selection__account_asset_pause__asset_pause_type__both_of_them
+msgid "BOTH OF THEM"
+msgstr "Ambos"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__book_value_niff
+msgid "Book Value"
+msgstr "Valor en libros NIFF"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__both_paused
+#: model:ir.model.fields,field_description:account_asset_extended.field_asset_modify__both_paused
+msgid "Both Paused"
+msgstr "Pausados"
+
+#. module: account_asset_extended
+#: model:ir.actions.server,name:account_asset_extended.account_asset_modify_action_server
+msgid "Calcular Amortizaciones"
+msgstr ""
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.wizard_account_asset_modify_model_form
+msgid "Cambiar Modelo"
+msgstr ""
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.wizard_account_asset_modify_model_form
+msgid "Cambio de Modelo"
+msgstr ""
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.asset_valorization_form
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.dismantlement_move_wizard_view_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.wizard_account_asset_modify_model_form
+msgid "Cancelar"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__capitalization_date
+msgid "Capitalization Date"
+msgstr ""
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.account_asset_sell_inherited
+msgid "Category of asset"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__children_ids_niff
+msgid "Children Ids Niff"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,help:account_asset_extended.field_account_asset__method_niff
+msgid ""
+"Choose the method to use to compute the amount of depreciation lines.\n"
+"  * Linear: Calculated on basis of: Gross Value / Number of Depreciations\n"
+"  * Degressive: Calculated on basis of: Residual Value * Degressive Factor\n"
+"  * Accelerated Degressive: Like Degressive but with a minimum depreciation value equal to the linear value."
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.actions.report,name:account_asset_extended.report_asset_custom_file
+msgid "Codigo de barras del producto"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_movements__company_id
+#: model:ir.model.fields,field_description:account_asset_extended.field_dismantlement_wizard__company_id
+msgid "Company"
+msgstr "Compañia"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_modify_model__company_id
+msgid "Compañia"
+msgstr ""
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.dismantlement_move_wizard_view_form
+msgid "Create"
+msgstr ""
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.dismantlement_move_wizard_view_form
+msgid "Create Move"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_modify_model__create_uid
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_movements__create_uid
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_valorization__create_uid
+#: model:ir.model.fields,field_description:account_asset_extended.field_dismantlement_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_modify_model__create_date
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_movements__create_date
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_valorization__create_date
+#: model:ir.model.fields,field_description:account_asset_extended.field_dismantlement_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__dismantlement_cr_account_id
+#: model:ir.model.fields,field_description:account_asset_extended.field_dismantlement_wizard__dismantlement_cr_account_id
+msgid "Cuenta Provision CR"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__dismantlement_db_account_id
+#: model:ir.model.fields,field_description:account_asset_extended.field_dismantlement_wizard__dismantlement_db_account_id
+msgid "Cuenta Provision DB"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_sell__asset_account_id
+msgid "Cuenta del activo"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_sell__depreciation_account_id
+msgid "Cuenta depreciacion"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__profit_account_id
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_valorization__profit_account_id
+msgid "Cuenta para ganancias"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__loss_account_id
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_valorization__loss_account_id
+msgid "Cuenta para perdidas"
+msgstr ""
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.account_asset_extended_form
+msgid "Cuentas para perdida y ganancias"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_valorization__currency_id
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.account_asset_extended_form
+msgid "Current Values"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields.selection,name:account_asset_extended.selection__account_move__asset_clasification__dismantlement
+msgid "DESMANTELAMIENTO"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_dismantlement_wizard__date
+msgid "Date"
+msgstr "Fecha"
+
+#. module: account_asset_extended
+#: model:ir.model.fields.selection,name:account_asset_extended.selection__account_asset__method_niff__degressive
+msgid "Degressive"
+msgstr "Decreciente"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__method_progress_factor_niff
+msgid "Degressive Factor"
+msgstr "Factor Decreciente"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_valorization__valorization_value
+#: model:ir.model.fields,field_description:account_asset_extended.field_asset_modify__value_residual_niff
+msgid "Depreciable Amount"
+msgstr "Avaluo"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__value_residual_niff
+msgid "Depreciable Value"
+msgstr "Valor depreciable"
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.account_asset_extended_form
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.account_asset_movements_form
+msgid "Depreciation"
+msgstr "Depreciación"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__account_depreciation_id_niff
+msgid "Depreciation Account"
+msgstr "Cuenta depreciación NIFF"
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.account_asset_extended_form
+msgid "Depreciation Board"
+msgstr "Tabla de depreciación"
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.account_asset_extended_form
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.account_asset_movements_form
+msgid "Depreciation Date"
+msgstr "Fecha Depreciación"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__depreciation_move_ids_fiscal
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__depreciation_move_ids_niff
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.account_asset_extended_form
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.account_asset_movements_form
+msgid "Depreciation Lines"
+msgstr "Lineas depreciación"
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.account_asset_extended_form
+msgid "Depreciation Method"
+msgstr "Metodo de depreciación"
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.account_asset_extended_form
+msgid "Desmantelamiento"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.actions.act_window,name:account_asset_extended.dismantlement_move_wizard_action
+#: model:ir.model,name:account_asset_extended.model_dismantlement_wizard
+msgid "Dismantlement for asset"
+msgstr "Desmantelamiento para el activo"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__display_account_asset_id_niff
+msgid "Display Account Asset Id Niff"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__display_model_choice_niff
+msgid "Display Model Choice Niff"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_modify_model__display_name
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_movements__display_name
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_valorization__display_name
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_assets_report_extended__display_name
+#: model:ir.model.fields,field_description:account_asset_extended.field_dismantlement_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__disposal_date
+msgid "Disposal Date"
+msgstr "Fecha de desecho"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_dismantlement_wizard__description
+msgid "Drescription"
+msgstr ""
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.account_asset_extended_form
+msgid "Duration"
+msgstr "Duracion"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__account_depreciation_expense_id_niff
+msgid "Expense Account"
+msgstr "Cuenta del gasto NIFF"
+
+#. module: account_asset_extended
+#: model:ir.model.fields.selection,name:account_asset_extended.selection__account_asset_modify_model__model_modification_type__fiscal
+#: model:ir.model.fields.selection,name:account_asset_extended.selection__account_asset_pause__asset_pause_type__fiscal
+#: model:ir.model.fields.selection,name:account_asset_extended.selection__account_move__asset_clasification__fiscal
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.account_asset_extended_form
+msgid "FISCAL"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields.selection,name:account_asset_extended.selection__account_move__asset_clasification__fiscal_move
+msgid "FISCAL cambio modelo"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_modify_model__date
+msgid "Fecha de modificación"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__first_depreciation_date_niff
+msgid "First Depreciation Date"
+msgstr "Primera fecha de depreciacion NIFF"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__fiscal_paused
+#: model:ir.model.fields,field_description:account_asset_extended.field_asset_modify__fiscal_paused
+msgid "Fiscal Paused"
+msgstr "FISCAL pausado"
+
+#. module: account_asset_extended
+#: model:ir.model.fields.selection,name:account_asset_extended.selection__account_asset__asset_category__0
+msgid "Fixed Asset"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__account_asset_id_niff
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_movements__account_asset_from_id
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_movements__account_asset_to_id
+msgid "Fixed Asset Account"
+msgstr "Cuenta de activo fijo NIFF"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_asset_modify__gain_value_niff
+msgid "Gain Value Niff"
+msgstr "Valor ganancia NIFF"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__gross_increase_value_niff
+msgid "Gross Increase Value"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_modify_model__id
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_movements__id
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_valorization__id
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_assets_report_extended__id
+#: model:ir.model.fields,field_description:account_asset_extended.field_dismantlement_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,help:account_asset_extended.field_account_asset_pause__records_ids
+msgid "Ids usados en caso de pausar masivamente"
+msgstr ""
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.asset_modify_asset_type
+msgid "Increase Accounts"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,help:account_asset_extended.field_account_asset__prorata_niff
+msgid ""
+"Indicates that the first depreciation entry for this asset have to be done "
+"from the asset date (purchase date) instead of the first January / Start "
+"date of fiscal year"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_valorization__is_gain
+msgid "Is Gain"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_valorization__is_lose
+msgid "Is Lose"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,help:account_asset_extended.field_account_asset__salvage_value_niff
+msgid "It is the amount you plan to have that you cannot depreciate."
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__journal_id_niff
+#: model:ir.model.fields,field_description:account_asset_extended.field_dismantlement_wizard__journal_id
+msgid "Journal"
+msgstr "Diario NIFF"
+
+#. module: account_asset_extended
+#: model:ir.model,name:account_asset_extended.model_account_move
+msgid "Journal Entries"
+msgstr "Asientos contables"
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.account_asset_extended_form
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.account_asset_movements_form
+msgid "Journal Entry"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__original_move_line_ids_niff
+msgid "Journal Items"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_modify_model____last_update
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_movements____last_update
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_valorization____last_update
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_assets_report_extended____last_update
+#: model:ir.model.fields,field_description:account_asset_extended.field_dismantlement_wizard____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_modify_model__write_uid
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_movements__write_uid
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_valorization__write_uid
+#: model:ir.model.fields,field_description:account_asset_extended.field_dismantlement_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_modify_model__write_date
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_movements__write_date
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_valorization__write_date
+#: model:ir.model.fields,field_description:account_asset_extended.field_dismantlement_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields.selection,name:account_asset_extended.selection__account_asset__asset_category__3
+msgid "Leasing"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields.selection,name:account_asset_extended.selection__account_asset__asset_category__1
+msgid "License"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields.selection,name:account_asset_extended.selection__account_asset__method_niff__linear
+msgid "Linear"
+msgstr "Lineal"
+
+#. module: account_asset_extended
+#: model:ir.model.fields.selection,name:account_asset_extended.selection__account_asset_movements__movement_type__mantenido_venta
+#: model:ir.model.fields.selection,name:account_asset_extended.selection__account_asset_sell__action__mantenido_venta
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.account_asset_sell_inherited
+msgid "Mantenido para la venta"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__method_niff
+msgid "Method"
+msgstr "Metodo NIFF"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_modify_model__actual_fiscal_model_id
+msgid "Modelo Fiscal Actual"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__model_niff_id
+msgid "Modelo NIFF"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_modify_model__actual_niff_model_id
+msgid "Modelo NIFF Actual"
+msgstr ""
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.wizard_account_asset_modify_model_form
+msgid "Modificación"
+msgstr ""
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.account_asset_extended_form
+msgid "Modificar modelo de activo"
+msgstr ""
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.asset_valorization_form
+msgid "Modification"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model,name:account_asset_extended.model_asset_modify
+msgid "Modify Asset"
+msgstr "Modificar activo"
+
+#. module: account_asset_extended
+#: model:ir.model.fields.selection,name:account_asset_extended.selection__account_asset__method_period_niff__1
+#: model:ir.model.fields.selection,name:account_asset_extended.selection__asset_modify__method_period_niff__1
+msgid "Months"
+msgstr "Meses"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_movements__movement_type
+msgid "Movement Type"
+msgstr "Tipo de movimiento"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_movements__asset_movements_move_ids
+msgid "Movements betwen accounts"
+msgstr "Movimientos entre cuentas"
+
+#. module: account_asset_extended
+#: model:ir.model.fields.selection,name:account_asset_extended.selection__account_asset_modify_model__model_modification_type__niff
+#: model:ir.model.fields.selection,name:account_asset_extended.selection__account_asset_pause__asset_pause_type__niff
+#: model:ir.model.fields.selection,name:account_asset_extended.selection__account_move__asset_clasification__niff
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.account_asset_extended_form
+msgid "NIFF"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields.selection,name:account_asset_extended.selection__account_move__asset_clasification__niff_mantenido_venta
+msgid "NIFF Mantenido Venta"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields.selection,name:account_asset_extended.selection__account_move__asset_clasification__niff_prop_inv
+msgid "NIFF Propiedad Inv."
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields.selection,name:account_asset_extended.selection__account_move__asset_clasification__niff_move
+msgid "NIFF cambio modelo"
+msgstr ""
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.account_asset_movements_form
+msgid "Name"
+msgstr "Nombre"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_asset_modify__need_date_niff
+msgid "Need Date Niff"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__need_dismantlement
+msgid "Need dismantlement?"
+msgstr "¿Aplica desmantelamiento?"
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.asset_modify_asset_type
+msgid "New NIFF Values"
+msgstr "Nuevos valores NIFF"
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.asset_valorization_form
+msgid "New Values"
+msgstr "Nuevos valores"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,help:account_asset_extended.field_account_asset_valorization__valorization_value
+#: model:ir.model.fields,help:account_asset_extended.field_asset_modify__value_residual_niff
+msgid "New residual amount for the asset"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,help:account_asset_extended.field_asset_modify__salvage_value_niff
+msgid "New salvage amount for the asset"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__niff_paused
+#: model:ir.model.fields,field_description:account_asset_extended.field_asset_modify__niff_paused
+msgid "Niff Paused"
+msgstr "NIFF pausado"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_asset_modify__salvage_value_niff
+msgid "Not Depreciable Amount"
+msgstr "Valor no depreciable"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__salvage_value_niff
+msgid "Not Depreciable Value"
+msgstr "Valor no depreciable"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,help:account_asset_extended.field_account_asset__first_depreciation_date_niff
+msgid ""
+"Note that this date does not alter the computation of the first journal "
+"entry in case of prorata temporis assets. It simply changes its accounting "
+"date"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_modify_model__new_model_id
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.wizard_account_asset_modify_model_form
+msgid "Nuevo Modelo"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__method_number_niff
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_valorization__method_number
+#: model:ir.model.fields,field_description:account_asset_extended.field_asset_modify__method_number_niff
+msgid "Number of Depreciations"
+msgstr "Numero de Depreciaciones"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__method_period_niff
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_valorization__method_period
+#: model:ir.model.fields,field_description:account_asset_extended.field_asset_modify__method_period_niff
+msgid "Number of Months in a Period"
+msgstr "Duración"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,help:account_asset_extended.field_account_asset__gross_increase_count_niff
+msgid "Number of assets made to increase the value of the asset"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,help:account_asset_extended.field_account_asset__total_depreciation_entries_count_niff
+msgid "Number of depreciation entries (posted or not)"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__original_value_niff
+msgid "Original Value"
+msgstr "Valor original NIFF"
+
+#. module: account_asset_extended
+#: model:ir.actions.server,name:account_asset_extended.account_asset_pause_action_server
+msgid "Pausar Amortizaciones"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model,name:account_asset_extended.model_account_asset_pause
+msgid "Pause Asset"
+msgstr "Pausar activo"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_valorization__date
+msgid "Pause date"
+msgstr "Fecha"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__asset_parent_id
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__principal_asset
+#: model:ir.model.fields,field_description:account_asset_extended.field_product_product__asset_parent_id
+#: model:ir.model.fields,field_description:account_asset_extended.field_product_template__asset_parent_id
+msgid "Principal Asset"
+msgstr "Activo principal"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__producer
+msgid "Producer"
+msgstr "Fabricante"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__product_id
+msgid "Product"
+msgstr "Producto"
+
+#. module: account_asset_extended
+#: model:ir.model,name:account_asset_extended.model_product_template
+msgid "Product Template"
+msgstr "Plantilla del Producto"
+
+#. module: account_asset_extended
+#: model:ir.model.fields.selection,name:account_asset_extended.selection__account_asset_movements__movement_type__propiedad_inversion
+#: model:ir.model.fields.selection,name:account_asset_extended.selection__account_asset_sell__action__propiedad_inversion
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.account_asset_sell_inherited
+msgid "Propiedad de inversion"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__prorata_date_niff
+msgid "Prorata Date"
+msgstr "Fecha de prorrata"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__prorata_niff
+msgid "Prorata Temporis"
+msgstr ""
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.account_asset_extended_form
+msgid "Prov. Desmantelamiento"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields.selection,name:account_asset_extended.selection__account_asset__asset_category__2
+msgid "Proyect"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_pause__records_ids
+msgid "Records"
+msgstr ""
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.account_asset_extended_form
+msgid "Related Purchase"
+msgstr "Compras Relacionadas"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__employee_id
+msgid "Responsable"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model,name:account_asset_extended.model_account_asset_sell
+msgid "Sell Asset"
+msgstr "Vender activo"
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.account_asset_extended_form
+msgid "Set manually the original values or"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,help:account_asset_extended.field_account_asset__book_value_niff
+msgid ""
+"Sum of the depreciable value, the salvage value and the book value of all "
+"value increase items"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,help:account_asset_extended.field_asset_modify__gain_value_niff
+msgid ""
+"Technical field to know if we should display the fields for the creation of "
+"gross increase asset"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,help:account_asset_extended.field_account_asset__method_period_niff
+#: model:ir.model.fields,help:account_asset_extended.field_account_asset_valorization__method_period
+#: model:ir.model.fields,help:account_asset_extended.field_asset_modify__method_period_niff
+msgid "The amount of time between two depreciations"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,help:account_asset_extended.field_asset_modify__asset_id
+msgid "The asset to be modified by this wizard"
+msgstr "El activo debe modificadp desde este asistente"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,help:account_asset_extended.field_account_asset__children_ids_niff
+msgid "The children are the gains in value of this asset"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,help:account_asset_extended.field_account_asset__method_number_niff
+msgid "The number of depreciations needed to depreciate your asset"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_modify_model__model_modification_type
+msgid "Tipo de cambio de modelo"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__total_dismantlement
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.account_asset_extended_form
+msgid "Total Dismantlement"
+msgstr "Total desmantelamiento"
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.account_asset_extended_form
+msgid "Total Movements"
+msgstr "Total movimientos"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__total_movements_niff
+msgid "Total Movements Niff"
+msgstr "Total movimientos NIFF"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__user_type_id_niff
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_sell__user_type_id
+msgid "Type of the account"
+msgstr "Tipo de cuenta"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__ubication
+msgid "Ubication"
+msgstr "Ubicacion"
+
+#. module: account_asset_extended
+#: model:ir.model.fields.selection,name:account_asset_extended.selection__account_move__asset_clasification__valorizacion
+msgid "Valorizacion"
+msgstr ""
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.asset_valorization_form
+msgid "Valorizar"
+msgstr ""
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.account_asset_extended_form
+msgid "Valorizar activo"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields.selection,name:account_asset_extended.selection__account_asset__method_period_niff__12
+#: model:ir.model.fields.selection,name:account_asset_extended.selection__asset_modify__method_period_niff__12
+msgid "Years"
+msgstr "Años"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_move__account_asset_second_id
+msgid "asset"
+msgstr "Activo"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__identification_number
+msgid "identification"
+msgstr "Identificacion"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_movements__movement_date
+msgid "movement date"
+msgstr "Fecha movimiento"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_movements__name
+msgid "name"
+msgstr "Nombre"
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset_movements__reverse_date
+msgid "reverse date"
+msgstr "Fecha reversion"
+
+#. module: account_asset_extended
+#: model_terms:ir.ui.view,arch_db:account_asset_extended.account_asset_extended_form
+msgid "selected related purchases"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__can_value
+msgid "¿Aplica avaluo?"
+msgstr ""
+
+#. module: account_asset_extended
+#: model:ir.model.fields,field_description:account_asset_extended.field_account_asset__has_changed
+msgid "¿ha cambiado?"
+msgstr ""

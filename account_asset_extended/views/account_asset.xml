@@ -1,0 +1,269 @@
+<odoo>
+    <data>
+
+        <record id="account_asset_extended_form" model="ir.ui.view">
+            <field name="name">account.asset.extended.form</field>
+            <field name="model">account.asset</field>
+            <field name="inherit_id" ref="account_asset.view_account_asset_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="replace">
+                    <!-- <field name="producer" invisible="True"/> -->
+                    <notebook>
+                        <page string="FISCAL" name="fiscal" >
+                            <notebook colspan="4" attrs="{'invisible': ['|', ('state', '=', 'model'), '&amp;', ('total_depreciation_entries_count', '=', 0), ('original_move_line_ids', '=', [])]}">
+                                <page string="Depreciation Board" name="depreciation_board" attrs="{'invisible' : [('total_depreciation_entries_count', '=', 0)]}">
+                                    <field name="depreciation_move_ids" mode="tree" options="{'reload_whole_on_button': true}">
+                                        <tree string="Depreciation Lines" decoration-info="state == 'draft'" create="0"  default_order="date asc, id asc" editable="top">
+                                            <field name="currency_id" invisible="1"/>
+                                            <field name="ref" invisible=""/>
+                                            <field name="reversal_move_id" widget="deprec_lines_reversed"/>
+                                            <field name="date" string="Depreciation Date"/>
+                                            <field name="amount_total" widget="monetary" string="Depreciation" options="{'currency_field': 'currency_id'}" attrs="{'readonly': [('state', '=', 'posted')]}"/>
+                                            <field name="asset_depreciated_value" readonly="1" force_save="1" options="{'currency_field': 'currency_id'}"/>
+                                            <field name="asset_remaining_value" readonly="1" widget="monetary" force_save="1" options="{'currency_field': 'currency_id'}"/>
+                                            <field name="name" readonly="1" string="Journal Entry"/>
+                                            <field name="state" invisible="1"/>
+                                            <field name="asset_manually_modified" invisible="1"/>
+                                        </tree>
+                                    </field>
+                                </page>
+                                <page string="Related Purchase" name="related_items" attrs="{'invisible' : [('original_move_line_ids', '=', [])]}">
+                                    <field name="original_move_line_ids" widget="many2many" attrs="{'readonly': [('state','=','posted')]}" domain="[('credit', '=', '0'), ('move_id.state', '=', 'posted')]" class="original_move_line_ids_field">
+                                        <tree>
+                                            <field name="date" string="Depreciation Date"/>
+                                            <field name="partner_id"/>
+                                            <field name="move_id" string="Invoice"/>
+                                            <field name="name"/>
+                                            <field name="debit" widget="monetary"/>
+                                            <field name="credit" widget="monetary"/>
+                                        </tree>
+                                    </field>
+                                </page>
+                            </notebook>
+                        </page>
+                        <page string="NIFF" name="NIFF">
+                            <field name="total_depreciation_entries_count_niff" invisible="1"/>
+                            <group>
+                                <!-- <field name="asset_type" invisible="1"/>
+                                <field name="active" invisible="1"/> -->
+                                <group string="Asset Values" attrs="{'invisible': [('state', '=', 'model')]}">
+                                    <span colspan="2" attrs="{'invisible': ['|', ('original_move_line_ids', '!=', []), ('original_value_niff', '!=', 0)]}" class="oe_edit_only text-muted">Set manually the original values or <button class="btn btn-link oe_inline align-baseline p-0 add_original_move_line" string="selected related purchases"/></span>
+                                    <field name="original_value_niff" attrs="{'invisible': [('state', '=', 'model')], 'readonly': ['|', ('state','!=','draft'), ('original_move_line_ids', '!=', [])]}"/>
+                                    <field name="gross_increase_value_niff" widget="monetary" attrs="{'invisible': ['|', ('state', '=', 'model'), ('gross_increase_value_niff', '=', 0)]}" options="{'currency_field': 'currency_id'}"/>
+                                    <field name="acquisition_date_niff" attrs="{'invisible': [('state', '=', 'model')], 'readonly': ['|', ('state','!=','draft'), ('original_move_line_ids', '!=', [])]}"/>
+                                </group>
+                                <group string="Current Values" attrs="{'invisible': [('state', '=', 'model')]}">
+                                    <field name="currency_id" groups="base.group_multi_currency"/>
+                                    <field name="salvage_value_niff" widget="monetary" options="{'currency_field': 'currency_id'}" attrs="{'invisible': ['|', ('asset_type','!=','purchase'), ('state', '=', 'model')]}"/>
+                                    <field name="value_residual_niff" widget="monetary" attrs="{'invisible': [('state', '=', 'model')]}" options="{'currency_field': 'currency_id'}" force_save="True"/>
+                                    <field name="book_value_niff" widget="monetary" required="1" attrs="{'invisible': [('state', '=', 'model')]}" options="{'currency_field': 'currency_id'}" force_save="True"/>
+                                </group>
+                                <group string="Depreciation Method">
+                                    <field name="method_niff" widget="radio" attrs="{'invisible': [('asset_type', '!=', 'purchase')]}" options="{'horizontal': true}"/>
+                                    <field name="method_progress_factor_niff" attrs="{'invisible':['|',('method_niff','=','linear'),('asset_type','!=','purchase')], 'required':[('method_niff','in',('degressive', 'degressive_then_linear'))]}"/>
+                                    <label for="method_number_niff" string="Duration"/>
+                                    <div class="o_row">
+                                        <field name="method_number_niff" required="1"/>
+                                        <field name="method_period_niff" required="1" nolabel="1"/>
+                                    </div>
+                                    <label for="prorata_niff" attrs="{'invisible': [('state', 'not in', ('draft', 'model')), ('prorata_niff', '=', False)]}"/>
+                                    <div class="o_row" attrs="{'invisible': [('state', 'not in', ('draft', 'model')), ('prorata_niff', '=', False)]}">
+                                        <field name="prorata_niff"/>
+                                        <label for="prorata_date_niff" attrs="{'invisible': ['|', ('prorata_niff', '=', False), ('state', '=', 'model')]}"/>
+                                        <field name="prorata_date_niff" attrs="{'invisible': ['|', ('prorata_niff', '=', False), ('state', '=', 'model')], 'required': [('prorata_niff', '=', True), ('state', '!=', 'model')]}"/>
+                                    </div>
+                                    <field name="first_depreciation_date_niff" attrs="{'invisible': [('state', '=', 'model')]}"/>
+                                </group>
+                                <group string="Accounting">
+                                    <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+                                    <field name="account_asset_id_niff" attrs="{'invisible': ['|', ('display_account_asset_id', '=', False), ('asset_type', '!=', 'purchase')], 'required': [('state', 'in', ('model','draft')),('asset_type','=','purchase')]}" force_save="True"/>
+                                    <field name="account_depreciation_id_niff" required="1" force_save="True"/>
+                                    <field name="account_depreciation_expense_id_niff" required="1" force_save="True"/>
+                                    <field name="journal_id" required="1"/>
+                                    <field name="account_analytic_id" groups="analytic.group_analytic_accounting" attrs="{'required': [('asset_type','=','purchase'),('state','=','draft')]}"/>
+                                    <field name="analytic_tag_ids_niff" groups="analytic.group_analytic_accounting" widget="many2many_tags"/>
+                                </group>
+                                <group string="Cuentas para perdida y ganancias" attrs="{'invisible': [('asset_type','!=','purchase')]}">
+                                    <field name="can_value_niff"/>
+                                    <field name="is_keep_or_inversion" attrs="{'invisible': [('can_value_niff', '=', False)]}"/>
+                                    <field name="acumulated_valorization_niff" attrs="{'invisible': [('can_value_niff', '=', False)]}" readonly="True" force_save="True"/>
+                                    <field name="profit_account_niff_id" attrs="{'invisible': [('can_value_niff', '=', False)], 'required': [('can_value_niff', '!=', False)],'readonly': [('state','!=','model')]}" force_save="True"/>
+                                    <field name="loss_account_niff_id" attrs="{'invisible': [('can_value_niff', '=', False)], 'required': [('can_value_niff', '!=', False)],'readonly': [('state','!=','model')]}" force_save="True"/>
+                                </group>
+                                <group string="Desmantelamiento" attrs="{'invisible': [('asset_type','!=','purchase')]}">
+                                    <field name="need_dismantlement"/>
+                                    <field name="acumulated_dismantlement" attrs="{'invisible': [('need_dismantlement', '=', False)]}" readonly="True" force_save="True"/>
+                                    <field name="dismantlement_db_account_id" attrs="{'invisible': [('need_dismantlement', '=', False)], 'required': [('need_dismantlement', '!=', False)]}"/>
+                                    <field name="dismantlement_cr_account_id" attrs="{'invisible': [('need_dismantlement', '=', False)], 'required': [('need_dismantlement', '!=', False)]}"/>
+                                </group>
+                            </group>
+                            <notebook colspan="4" attrs="{'invisible': ['|', ('state', '=', 'model'), '&amp;', ('total_depreciation_entries_count', '=', 0), ('original_move_line_ids', '=', [])]}">
+                                <page string="Depreciation Board" name="depreciation_board" attrs="{'invisible' : [('total_depreciation_entries_count', '=', 0)]}">
+                                    <field name="depreciation_move_ids_niff" mode="tree" options="{'reload_whole_on_button': true}">
+                                        <tree string="Depreciation Lines" decoration-info="state == 'draft'" create="0"  default_order="asset_clasification, asset_remaining_value desc" editable="top">
+                                            <field name="currency_id" invisible="1"/>
+                                            <field name="ref" invisible=""/>
+                                            <field name="reversal_move_id" widget="deprec_lines_reversed"/>
+                                            <field name="date" string="Depreciation Date"/>
+                                            <field name="amount_total" widget="monetary" string="Depreciation" options="{'currency_field': 'currency_id'}" attrs="{'readonly': [('state', '=', 'posted')]}"/>
+                                            <field name="asset_depreciated_value" readonly="1" force_save="1" options="{'currency_field': 'currency_id'}"/>
+                                            <field name="asset_remaining_value" readonly="1" widget="monetary" force_save="1" options="{'currency_field': 'currency_id'}"/>
+                                            <field name="name" readonly="1" string="Journal Entry"/>
+                                            <field name="state" invisible="1"/>
+                                            <field name="asset_clasification"/>
+                                            <field name="asset_manually_modified" invisible="1"/>
+                                        </tree>
+                                    </field>
+                                </page>
+                                <page string="Related Purchase" name="related_items" attrs="{'invisible' : [('original_move_line_ids', '=', [])]}">
+                                    <field name="original_move_line_ids_niff" widget="many2many" attrs="{'readonly': [('state','=','posted')]}" domain="[('credit', '=', '0'), ('move_id.state', '=', 'posted')]" class="original_move_line_ids_field">
+                                        <tree>
+                                            <field name="date" string="Depreciation Date"/>
+                                            <field name="account_id"/>
+                                            <field name="name"/>
+                                            <field name="debit" widget="monetary"/>
+                                            <field name="credit" widget="monetary"/>
+                                        </tree>
+                                    </field>
+                                </page>
+                            </notebook>
+                        </page>
+                        <!-- <page string="Asset data" name="asset_data">
+                            <group>
+                                <group>
+                                    <field name="producer"/>
+                                    <field name="employee_id"/>
+                                    <field name="identification_number"/>
+                                    <field name="ubication"/>
+                                    <field name="capitalization_date"/>
+                                </group>
+                            </group>
+                        </page> -->
+                    </notebook>
+                </xpath>
+                <xpath expr="//notebook/page[@name='fiscal']/notebook" position="before">
+                    <xpath expr="//sheet/group" position="move"/>
+                    <!-- <xpath expr="//sheet/notebook[2]" position="move"/> -->
+                </xpath>
+                <xpath expr="//field[@name='depreciation_move_ids']" position="after">
+                    <field name="depreciation_move_ids_fiscal" mode="tree" options="{'reload_whole_on_button': true}">
+                        <!-- <tree string="Depreciation Lines" decoration-info="state == 'draft'" create="0"  default_order="date asc, id asc" editable="top"> -->
+                        <tree string="Depreciation Lines" decoration-info="state == 'draft'" create="0"  default_order="asset_clasification, asset_remaining_value desc" editable="top">
+                            <field name="currency_id" invisible="1"/>
+                            <field name="ref" invisible=""/>
+                            <field name="reversal_move_id" widget="deprec_lines_reversed"/>
+                            <field name="date" string="Depreciation Date"/>
+                            <field name="amount_total" widget="monetary" string="Depreciation" options="{'currency_field': 'currency_id'}" attrs="{'readonly': [('state', '=', 'posted')]}"/>
+                            <field name="asset_depreciated_value" readonly="1" force_save="1" options="{'currency_field': 'currency_id'}"/>
+                            <field name="asset_remaining_value" readonly="1" widget="monetary" force_save="1" options="{'currency_field': 'currency_id'}"/>
+                            <field name="name" readonly="1" string="Journal Entry"/>
+                            <field name="state" invisible="1"/>
+                            <field name="asset_clasification"/>
+                            <field name="asset_manually_modified" invisible="1"/>
+                        </tree>
+                    </field>
+                </xpath>
+                <xpath expr="//field[@name='depreciation_move_ids']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//div[@class='oe_title']" position="after">
+                    <group>
+                        <group string="Datos del Activo" attrs="{'invisible': ['|',('state', '=', 'model'),('asset_type','!=','purchase')]}">
+                            <field name="model_id" domain="[('state', '=', 'model'), ('asset_type', '=', asset_type)]" readonly="True" force_save="True"/>
+                            <field name="model_niff_id" domain="[('state', '=', 'model'), ('user_type_id', '=?', user_type_id), ('asset_type', '=', asset_type)]" readonly="True" force_save="True"/>
+                            <field name="producer"/>
+                            <field name="employee_id"/>
+                            <field name="identification_number"/>
+                            <field name="ubication"/>
+                            <field name="capitalization_date"/>
+                        </group>
+                        <group string="Relacion del Activo" attrs="{'invisible': ['|',('state', '=', 'model'),('asset_type','!=','purchase')]}">
+                            <field name="asset_parent_id"/>
+                            <field name="product_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="both_paused" readonly="True" force_save="True" />
+                            <field name="niff_paused" readonly="True" force_save="True" />
+                            <field name="fiscal_paused" readonly="True" force_save="True"/>
+                        </group>
+                        <group string="Datos del Activo" attrs="{'invisible': ['|',('state', '=', 'model'),('asset_type','!=','expense')]}">
+                            <field name="partner_id"/>
+                        </group>
+                    </group>
+                    <group>
+                        
+                    </group>
+                </xpath>
+                <xpath expr="//button[@name='action_save_model']" position="after">
+                    <button name="account_asset_extended.dismantlement_move_wizard_action"
+                        type="action"
+                        context="{'default_asset_id': id, 'default_company_id':company_id, 'default_dismantlement_db_account_id':dismantlement_db_account_id, 'default_dismantlement_cr_account_id':dismantlement_cr_account_id}"
+                        string="Prov. Desmantelamiento"
+                        attrs="{'invisible': ['|',('need_dismantlement', '=', False),'|',('state','in',('model','draft')),('asset_type','!=','purchase')]}"/>
+                    <button name="action_asset_valorizate"
+                        type="object"
+                        string="Valorizar activo"
+                        attrs="{'invisible': ['|',('state','!=','open'),'&amp;',('can_value','=',False),('can_value_niff','=',False)]}"/>
+                    <button name="action_asset_modify_model"
+                        type="object"
+                        string="Modificar modelo de activo"
+                        attrs="{'invisible': ['|',('state', '!=', 'open'),('asset_type','!=','purchase')]}"/>
+                </xpath>
+                <xpath expr="//button[@name='open_increase']" position="after">
+                    <button class="oe_stat_button" name="open_dismantlements" type="object" icon="fa-archive" attrs="{'invisible': [('need_dismantlement', '=', False)]}">
+                        <field name="total_dismantlement" string="Total Dismantlement" widget="statinfo"/>
+                    </button>
+                    <!-- <button class="oe_stat_button" name="open_movements" type="object" icon="fa-archive" attrs="{'invisible': [('total_movements_niff', '=', 0)]}">
+                        <field name="total_movements_niff" string="Total Movements" widget="statinfo"/>
+                    </button> -->
+                </xpath>
+                <xpath expr="//field[@name='method_number']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state', '!=', ('model','draft')),('asset_type','not in',('purchase','sale','expense'))]}</attribute>
+                    <attribute name="force_save">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='account_asset_id']" position="attributes">
+                    <attribute name="attrs">{'invisible': ['|', ('display_account_asset_id', '=', False), ('asset_type', '!=', 'purchase')], 'required': [('state', 'in', ('model','draft')),('asset_type','=','purchase')]}</attribute>
+                </xpath>
+                <xpath expr="//button[@name='action_set_to_close']" position="attributes">
+                    <!-- <attribute name="attrs">{'invisible': ['|', ('state', '!=', 'open'),'|',('asset_type', '!=', 'purchase'),('total_movements_niff','!=',0)]}</attribute> -->
+                    <attribute name="attrs">{'invisible': ['|', ('state', '!=', 'open'),('asset_type', '!=', 'purchase')]}</attribute>
+                </xpath>
+                <xpath expr="//notebook/page[@name='fiscal']//field[@name='account_analytic_id']" position="attributes">
+                    <attribute name="attrs">{'required': [('asset_type', 'in', ('purchase','expense')),('state','=','draft')], 'invisible':[('state','=','model')]}</attribute>
+                </xpath>
+                <xpath expr="//notebook/page[@name='fiscal']/group" position="after">
+                    <group string="Cuentas para perdida y ganancias" attrs="{'invisible': [('asset_type','!=','purchase')]}">
+                        <group>
+                            <field name="can_value"/>
+                            <field name="acumulated_valorization" attrs="{'invisible': [('can_value', '=', False)]}" readonly="True" force_save="True"/>
+                            <field name="profit_account_id" attrs="{'invisible': [('can_value', '=', False)], 'required': [('can_value', '!=', False)],'readonly': [('state','!=','model')]}" force_save="True"/>
+                            <field name="loss_account_id" attrs="{'invisible': [('can_value', '=', False)], 'required': [('can_value', '!=', False)],'readonly': [('state','!=','model')]}" force_save="True"/>
+                        </group>
+                        <group></group>
+                    </group>
+                </xpath>
+                <xpath expr="//div[@name='model_box']" position="replace">
+                    <div class="oe_button_box text-center oe_edit_only" name="model_box" attrs="{'invisible': [('display_model_choice', '!=', True)]}">
+                        <div>
+                            <label for="model_id" name="model_id_label" class="oe_edit_only"/>
+                            <field name="model_id" string="Asset Model" help="Category of asset" domain="[('state', '=', 'model'), ('asset_type', '=', asset_type)]"/>
+                        </div>
+                    </div>
+                </xpath>
+                <xpath expr="//field[@name='account_asset_id']" position="attributes">
+                    <attribute name="force_save">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='account_depreciation_id']" position="attributes">
+                    <attribute name="force_save">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='account_depreciation_expense_id']" position="attributes">
+                    <attribute name="force_save">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='book_value']" position="attributes">
+                    <attribute name="force_save">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='value_residual']" position="attributes">
+                    <attribute name="force_save">True</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <record id="asset_modify_extended_form" model="ir.ui.view">
+        <field name="name">wizard.asset.modify.form</field>
+        <field name="model">asset.modify</field>
+        <field name="inherit_id" ref="account_asset.asset_modify_form" />
+        <field name="arch" type="xml">
+            
+            
+            <xpath expr="//field[@name='gain_value']" position="after">
+                <field name="gain_fiscal_value" invisible="1"/>
+                <field name="gain_or_fiscal_loss" invisible="1"/>
+            </xpath>
+            
+            <xpath expr="//group[2]" position="replace">
+                <group attrs="{'invisible': [('modify_action', '=', False)]}">
+                    <group>
+                        <field name="date"/>
+
+                        <field name="invoice_ids"
+                               options="{'no_quick_create': True}"
+                               context="{'default_move_type': 'out_invoice', 'input_full_display_name': True}"
+                               attrs="{'invisible': [('modify_action', '!=', 'sell')],
+                                       'required': [('modify_action', '=', 'sell')]}"
+                               widget="many2many_tags"/>
+
+                        <field name="invoice_line_ids"
+                               options="{'no_create': True, 'no_quick_create': True}"
+                               attrs="{'invisible': [('modify_action', '!=', 'sell'), ('select_invoice_line_id', '=', False)],
+                                       'required': [('select_invoice_line_id', '=', True)]}"
+                               domain="[('move_id', 'in', invoice_ids), ('display_type', '=', 'product')]"
+                               widget="many2many_tags"/>
+
+                        <field name="gain_account_id"
+                               attrs="{'invisible': [('gain_or_loss', '!=', 'gain')],
+                                       'required': [('gain_or_loss', '=', 'gain')]}"/>
+
+                        <field name="loss_account_id"
+                               attrs="{'invisible': [('gain_or_loss', '!=', 'loss')],
+                                       'required': [('gain_or_loss', '=', 'loss')]}"/>
+
+                        <label for="method_number" attrs="{'invisible': [('modify_action', '!=', 'resume')]}"/>
+                        <div class="o_row" attrs="{'invisible': [('modify_action', '!=', 'resume')]}">
+                            <field name="method_number" required="1"/>
+                            <field name="method_period" required="1" nolabel="1"/>
+                        </div>
+                        <field name="value_residual" attrs="{'invisible': [('modify_action', 'not in', ('modify', 'resume'))]}"/>
+                        <field name="salvage_value" attrs="{'invisible': [('modify_action', 'not in', ('modify', 'resume'))]}"/>
+                        <field name="account_asset_id" attrs="{'invisible': [('modify_action', '!=', 'modify')], 'required': [('gain_value', '!=', False)]}"/>
+                        <field name="account_asset_counterpart_id" attrs="{'invisible': [('modify_action', '!=', 'modify')], 'required': [('gain_value', '!=', False)]}"/>
+                        <field name="account_depreciation_id" attrs="{'invisible': [('modify_action', '!=', 'modify')], 'required': [('gain_value', '!=', False)]}"/>
+                        <field name="account_depreciation_expense_id" attrs="{'invisible': [('modify_action', '!=', 'modify')], 'required': [('gain_value', '!=', False)]}"/>
+                        
+                        <separator string="Norma"/>
+                        
+                        
+                        <label for="method_fiscal_number" attrs="{'invisible': [('modify_action', '!=', 'resume')]}"/>
+                        <div class="o_row" attrs="{'invisible': [('modify_action', '!=', 'resume')]}">
+                            <field name="method_fiscal_number" required="1"/>
+                            <field name="method_fiscal_period" required="1" nolabel="1"/>
+                        </div>
+                        <field name="value_fiscal_residual" attrs="{'invisible': [('modify_action', 'not in', ('modify', 'resume'))]}"/>
+                        <field name="salvage_fiscal_value" attrs="{'invisible': [('modify_action', 'not in', ('modify', 'resume'))]}"/>
+                        <field name="account_asset_fiscal_id" attrs="{'invisible': [('modify_action', '!=', 'modify')], 'required': [('gain_fiscal_value', '!=', False)]}"/>
+                        <field name="account_asset_counterpart_fiscal_id" attrs="{'invisible': [('modify_action', '!=', 'modify')], 'required': [('gain_fiscal_value', '!=', False)]}"/>
+                        <field name="account_depreciation_fiscal_id" attrs="{'invisible': [('modify_action', '!=', 'modify')], 'required': [('gain_fiscal_value', '!=', False)]}"/>
+                        <field name="account_depreciation_expense_fiscal_id" attrs="{'invisible': [('modify_action', '!=', 'modify')], 'required': [('gain_fiscal_value', '!=', False)]}"/>
+                        
+                        
+                        
+                        <field name="name"
+                               placeholder="Add an internal note"
+                               attrs="{'required': [('modify_action', 'in', ('modify', 'resume'))]}"/>
+                    </group>
+                    <group>
+                        <field name="informational_text" nolabel="1" colspan="2"/>
+                    </group>
+                </group>
+            </xpath>
+
+
+        </field>
+    </record>
+
+</odoo>
