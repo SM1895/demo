@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-# Copyright (C) Sysman SAS.
-# Co-Author        Jhair Alejandro Escobar (Sysman SAS), japulido@sysman.com.co
 
 {
     'name': "Account Asset Extended",
@@ -14,8 +12,8 @@
         Extended module for account asset
     """,
 
-    "author": "Sysman SAS",
-    "website": "https://sysman.com.co",
+    "author": "Diego Castaño",
+    "website": "https://odoo.com.co",
     'license': 'OPL-1',
     'category': 'Purchase',
     'version': '16.0.1',
