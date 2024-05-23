@@ -1,5 +1,6 @@
 from odoo import models, api, fields
 from odoo.tools import formatLang
+from odoo.exceptions import ValidationError
 
 
 class AccountMove(models.Model):
@@ -37,6 +38,31 @@ class AccountMove(models.Model):
         compute='_compute_amount_total_aiu',
         store=True
     )
+    city_id = fields.Many2one(
+        comodel_name='res.city',
+        string='Ciudad de Ejecución'
+    )
+    ciuu_id = fields.Many2one(
+        comodel_name='ciiu.value',
+        string='CIIU'
+    )
+    tax_ciiu_id = fields.Many2one(
+        comodel_name='account.tax',
+        string='Impuesto a la Ciudad'
+    )
+
+    @api.constrains('city_id', 'ciuu_id')
+    def _check_city_ciiu(self):
+        for record in self.filtered(lambda x: x.move_type == 'in_invoice'):
+            ciuu = self.env['account.tax.retention.table'].search([
+                ('city_id', '=', record.city_id.id),
+                ('ciiu_activity_id', '=', record.ciuu_id.id),
+                ('company_id', '=', record.company_id.id),
+                ('ica_type', '=', 'rete_ica')
+            ])
+            if not ciuu:
+                raise ValidationError('No se encuentra parametrizada la tabla de ICA '
+                                      'y Retención de ICA para la ciudad y CIIU seleccionados, por favor validar')
 
     @api.depends('aiu_line_ids',
                  'aiu_line_ids.amount_invoice')
@@ -67,6 +93,25 @@ class AccountMove(models.Model):
                     lambda x: x.tax_line_id and x.tax_line_id.inherit_analytic):
                 record.with_context(
                     add_analityc=True)._get_json_analytic()
+
+    @api.onchange('partner_id')
+    def _set_ciiu_values(self):
+        for record in self.filtered(lambda x: x.move_type == 'in_invoice'):
+            record.city_id = record.partner_id.city_id
+            record.ciuu_id = record.partner_id.main_ciuu_id
+
+    @api.onchange('city_id', 'ciuu_id')
+    def _onchange_city_ciuu(self):
+        for record in self.filtered(lambda x: x.move_type == 'in_invoice'):
+            record.tax_ciiu_id = False
+            ciuu = self.env['account.tax.retention.table'].search([
+                ('city_id', '=', record.city_id.id),
+                ('ciiu_activity_id', '=', record.ciuu_id.id),
+                ('company_id', '=', record.company_id.id),
+                ('ica_type', '=', 'rete_ica')
+            ])
+            if ciuu:
+                record.tax_ciiu_id = ciuu.rteica_tax_id
 
     @api.onchange('aiu_type')
     def _onchange_aiu_type(self):

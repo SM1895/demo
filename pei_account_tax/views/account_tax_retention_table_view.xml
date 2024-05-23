@@ -33,8 +33,8 @@
                                 <field name="fee_retention" class="oe_inline" readonly="1" nolabel="1"/>
                                 <span class="o_form_label oe_inline">%</span>
                             </div>
-                            <field name="account_id" readonly="1" domain="[('deprecated', '=', False), ('company_id', '=', company_id)]" attrs="{'invisible': [('ica_type', '!=', 'ica')]}"/>
-                            <field name="rte_account_id" readonly="1" domain="[('deprecated', '=', False), ('company_id', '=', company_id)]" attrs="{'invisible': [('ica_type', '!=', 'rete_ica')]}"/>
+                            <field name="account_id" readonly="1" domain="[('deprecated', '=', False), ('company_id', '=', company_id), ('is_title', '=', True)]" attrs="{'invisible': [('ica_type', '!=', 'ica')]}"/>
+                            <field name="rte_account_id" readonly="1" domain="[('deprecated', '=', False), ('company_id', '=', company_id), ('is_title', '=', True)]" attrs="{'invisible': [('ica_type', '!=', 'rete_ica')]}"/>
                             <field name="company_id" invisible="1"/>
                         </group>
                     </group>

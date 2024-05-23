@@ -205,3 +205,18 @@ class AccountMoveLine(models.Model):
         # it changes the dependencies.
         self.env.add_to_compute(self._fields['debit'], container['records'])
         self.env.add_to_compute(self._fields['credit'], container['records'])
+
+    @api.depends('product_id', 'product_uom_id', 'move_id.tax_ciiu_id')
+    def _compute_tax_ids(self):
+        for line in self:
+            if line.display_type in ('line_section', 'line_note', 'payment_term'):
+                continue
+            # /!\ Don't remove existing taxes if there is no explicit taxes set on the account.
+            if line.product_id or line.account_id.tax_ids or not line.tax_ids or (line.move_id.move_type == 'in_invoice' and line.move_id.tax_ciiu_id):
+                line.tax_ids = line._get_computed_taxes()
+
+    def _get_computed_taxes(self):
+        tax_ids = super()._get_computed_taxes()
+        if self.move_id.move_type == 'in_invoice' and self.move_id.tax_ciiu_id:
+            tax_ids += self.move_id.fiscal_position_id.map_tax(self.move_id.tax_ciiu_id)
+        return tax_ids
