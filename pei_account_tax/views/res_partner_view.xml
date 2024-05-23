@@ -6,6 +6,9 @@
         <field name="type">form</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
+            <field name="vat" position="after">
+                <field name="main_ciuu_id" options="{'no_create': True, 'no_create_edit': True}"/>
+            </field>
             <page name="internal_notes" position="before">
                 <page string="Códigos CIIU" name="ciiu_codes">
                     <field name="ciiu_value_ids" nolabel="1" create="false">

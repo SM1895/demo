@@ -7,8 +7,12 @@ class ResPartner(models.Model):
 
     ciiu_value_ids = fields.Many2many(
         comodel_name='ciiu.value',
-        inverse_name='partner_id',
         string='Códigos CIIU'
+    )
+    main_ciuu_id = fields.Many2one(
+        comodel_name='ciiu.value',
+        string='Actividad principal',
+        domain="[('id', 'in', ciiu_value_ids)]"
     )
 
     @api.constrains('ciiu_value_ids')
