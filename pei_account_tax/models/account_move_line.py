@@ -61,6 +61,8 @@ class AccountMoveLine(models.Model):
             if self.move_id.move_type != 'entry':
                 taxes = self.env["account.tax.retention.table"]._compute_reteica(taxes, self.partner_id)
             taxes_ids += taxes
+        if self.move_id.move_type == 'in_invoice' and self.move_id.tax_ciiu_id:
+            taxes_ids += self.move_id.fiscal_position_id.map_tax(self.move_id.tax_ciiu_id)
         return taxes_ids
 
     @api.onchange('tax_ids', 'partner_id')
@@ -214,9 +216,3 @@ class AccountMoveLine(models.Model):
             # /!\ Don't remove existing taxes if there is no explicit taxes set on the account.
             if line.product_id or line.account_id.tax_ids or not line.tax_ids or (line.move_id.move_type == 'in_invoice' and line.move_id.tax_ciiu_id):
                 line.tax_ids = line._get_computed_taxes()
-
-    def _get_computed_taxes(self):
-        tax_ids = super()._get_computed_taxes()
-        if self.move_id.move_type == 'in_invoice' and self.move_id.tax_ciiu_id:
-            tax_ids += self.move_id.fiscal_position_id.map_tax(self.move_id.tax_ciiu_id)
-        return tax_ids
