@@ -52,6 +52,32 @@ class AccountTaxHierarchy(models.Model):
             taxes += orphan
         return taxes
 
+    def _compute_ica(self, line, taxes):
+        ica_parent_taxes = self.search([("method", "=", "ica")])
+        ica_children = ica_parent_taxes.filtered(lambda h: h.child_tax_id.id in taxes.ids)
+        for t in ica_children:
+            if line.partner_id.city_id != t.city_id or not((line.partner_id.main_ciuu_id) & t.ciiu_ids):
+                taxes = (taxes - t.child_tax_id) | t.parent_tax_id
+        ica_taxes = taxes.filtered(lambda t: t in ica_parent_taxes.parent_tax_id)
+        taxes_correspondance = self.env['account.tax']
+        for tax in ica_taxes:
+            tax_correspondance_main = self.search([
+                ("parent_tax_id", "=", tax.id),
+                ("city_id", "=", line.partner_id.city_id.id),
+            ]).filtered(lambda t: line.partner_id.main_ciuu_id & t.ciiu_ids).child_tax_id
+            if tax_correspondance_main:
+                taxes_correspondance |= tax_correspondance_main
+            else:
+                tax_correspondance_other = self.search([
+                    ("parent_tax_id", "=", tax.id),
+                    ("city_id", "=", line.partner_id.city_id.id),
+                ]).filtered(lambda t: line.partner_id.other_ciiu_id & t.ciiu_ids).child_tax_id
+                taxes_correspondance |= tax_correspondance_other
+        if not taxes_correspondance:
+            return taxes
+        # return ica_taxes, taxes_correspondance
+        return (taxes - ica_taxes) | taxes_correspondance
+
     def unlink(self):
         for record in self:
             tax_ids = self.env['account.tax'].search([
