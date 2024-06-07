@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>   
+    <record id="pei_account_account_form_inherit" model="ir.ui.view">
+        <field name="name">pei.account.account.form.inherit</field>
+        <field name="model">account.account</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="account.view_account_form"/>
+        <field name="arch" type="xml">
+            <field name="deprecated" position="before">
+                <field name="apply_retention_income_tax" />
+            </field>
+        </field>
+    </record>
+</odoo>

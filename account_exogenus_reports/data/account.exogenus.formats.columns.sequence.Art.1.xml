@@ -1,0 +1,19 @@
+<odoo>
+    <data noupdate="1">
+        <record model="account.exogenus.formats.columns.sequence" id="column_art1_1">
+            <field name="account_format_column_id" ref="line_art1_1"/>
+            <field name="exogenus_format_id" ref="art_0001"/>
+            <field name="sequence">0</field>
+        </record>
+        <record model="account.exogenus.formats.columns.sequence" id="column_art1_2">
+            <field name="account_format_column_id" ref="line_art1_2"/>
+            <field name="exogenus_format_id" ref="art_0001"/>
+            <field name="sequence">1</field>
+        </record>
+        <record model="account.exogenus.formats.columns.sequence" id="column_art1_3">
+            <field name="account_format_column_id" ref="line_art1_3"/>
+            <field name="exogenus_format_id" ref="art_0001"/>
+            <field name="sequence">2</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="account_tax_retention_ica_view_form" model="ir.ui.view">
+        <field name="name">account.tax.retention.ica.view.form</field>
+        <field name="model">account.tax.retention.ica</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name='compute_income_values' string='Calcular Ingresos' type='object' groups="pei_account_tax.account_tax_ica_account_admin" class='oe_highlight'/>
+                    <button name='compute_partner_values' string='Calcular Distribución' type='object' attrs="{'invisible': [('is_main_company', '=', True)]}" groups="pei_account_tax.account_tax_ica_account_admin" class='oe_highlight'/>
+                    <button name="create_account_move" string="Generar Asiento" type="object" attrs="{'invisible': [('is_main_company', '=', True)]}" groups="pei_account_tax.account_tax_ica_account_admin" class='oe_highlight'/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" required="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="city_id" required="1" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                            <field name="min_base_retention"/>
+                        </group>
+                        <group>
+                            <field name="account_setting_id" required="1"/>
+                            <field name="move_id" readonly="1"/>
+                            <field name="account_group_by_analytic" invisible="1"/>
+                            <field name="city_from_business" invisible="1"/>
+                            <field name="is_main_company" invisible="1"/>
+                            <field name="domain_cities_ids" invisible="1"/>
+                            <field name="readonly_city" invisible="1"/>
+                        </group>
+                    </group>
+                    <separator string='Filtros'/>
+                    <group>
+                        <group>
+                            <field name='date_from' required="1"/>
+                        </group>
+                        <group>
+                            <field name='date_to' required="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Resumen de Ingresos">
+                            <button name="add_massive_accounts" string="Agregar Cuentas" type="object" groups="pei_account_tax.account_tax_ica_account_admin" class='oe_highlight'/>
+                            <field name="income_line_ids">
+                                <tree editable="bottom">
+                                    <field name="account_id" domain="[('apply_retention_income_tax', '=', True)]" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                                    <field name="ciiu_id" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                                    <field name="tax_id"/>
+                                    <field name="fee_value" widget="percentage"/>
+                                    <field name="amount_move" readonly="1" sum="Total"/>
+                                    <field name="amount_balance" readonly="1" sum="Total"/>
+                                    <field name="amount_retention" readonly="1" sum="Total"/>
+                                    <button name='action_view_audit' string='Auditoria' type="object" class="float-end btn-secondary"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Terceros y Distribución" attrs="{'invisible': [('is_main_company', '=', True)]}">
+                            <field name="audit_line_ids" readonly="1">
+                                <tree>
+                                    <field name="partner_id"/>
+                                    <field name="participation_percentage" widget="percentage"/>
+                                    <field name="fiscal_position_id"/>
+                                    <field name="ciiu_id"/>
+                                    <field name="amount_retention" sum="Total"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="account_tax_retention_ica_view_tree" model="ir.ui.view">
+        <field name="name">account.tax.retention.ica.view.tree</field>
+        <field name="model">account.tax.retention.ica</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="city_id"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="act_account_tax_retention_ica">
+        <field name="name">Proceso Retención de ICA</field>
+        <field name="res_model">account.tax.retention.ica</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Click Para Crear un Nuevo Proceso Retención de ICA
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_account_tax_retention_ica" 
+        name="Proceso Retención de ICA" 
+        sequence="20" 
+        action="act_account_tax_retention_ica"
+        parent="pei_account_tax.menu_tax_ica_retention_root"/>
+</odoo>

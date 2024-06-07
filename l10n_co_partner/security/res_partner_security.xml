@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_partner_operation_type" model="ir.module.category">
+        <field name="name">Control de Creación y Edición de Terceros</field>
+    </record>
+    <record id="group_res_partner_form" model="res.groups">
+        <field name="name">Crear Contactos desde Formulario</field>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]" />
+        <field name="category_id" ref="res_partner_operation_type"/>
+    </record>
+    <record id="group_res_partner_edit_form" model="res.groups">
+        <field name="name">Editar Contactos desde Formulario</field>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]" />
+        <field name="category_id" ref="res_partner_operation_type"/>
+    </record>
+    <record id="group_res_partner_import_csv" model="res.groups">
+        <field name="name">Importar Contactos desde Archivos CSV/Excel</field>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]" />
+        <field name="category_id" ref="res_partner_operation_type"/>
+    </record>
+    <record id="group_res_partner_api" model="res.groups">
+        <field name="name">Crear Contactos por API-REST</field>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]" />
+        <field name="category_id" ref="res_partner_operation_type"/>
+    </record>
+</odoo>

@@ -1,0 +1,140 @@
+<odoo>
+    <data>
+
+            <!-- server action to the one above -->
+
+    <record model="ir.actions.server" id="account_asset_modify_action_server">
+        <field name="name">Calcular Amortizaciones</field>
+        <field name="model_id" ref="account_asset_extended.model_account_asset"/>
+        <field name="binding_model_id" ref="account_asset_extended.model_account_asset"/>
+        <field name="state">code</field>
+        <field name="binding_view_types">list</field>
+        <field name="code">
+            if records:
+                for record in records:
+                    record.compute_depreciation_board_masive()
+        </field>
+    </record>
+
+    <!--<record model="ir.actions.server" id="account_asset_pause_action_server">
+        <field name="name">Pausar Amortizaciones</field>
+        <field name="model_id" ref="account_asset_extended.model_account_asset"/>
+        <field name="binding_model_id" ref="account_asset_extended.model_account_asset"/>
+        <field name="state">code</field>
+        <field name="binding_view_types">list</field>
+        <field name="code">
+            if records:
+                new_wizard = env['account.asset.pause'].create({
+                    'asset_id': records[0].id,
+                    'records_ids': records,
+                })
+                action = {
+                    'name': ('Pause Asset'),
+                    'view_mode': 'form',
+                    'res_model': 'account.asset.pause',
+                    'type': 'ir.actions.act_window',
+                    'target': 'new',
+                    'res_id': new_wizard.id,
+                }
+        </field>
+    </record>-->
+
+    <record model="ir.actions.server" id="account_asset_masive_resume_action_server">
+        <field name="name">Reanudar Amortizaciones</field>
+        <field name="model_id" ref="account_asset_extended.model_account_asset"/>
+        <field name="binding_model_id" ref="account_asset_extended.model_account_asset"/>
+        <field name="state">code</field>
+        <field name="binding_view_types">list</field>
+        <field name="code">
+            if records:
+                new_wizard = env['asset.modify.massive'].create({
+                    'records_ids': records,
+                    'is_model_change': False,
+                })
+                action = {
+                    'name': ('Modify Asset'),
+                    'view_mode': 'form',
+                    'res_model': 'asset.modify.massive',
+                    'type': 'ir.actions.act_window',
+                    'target': 'new',
+                    'res_id': new_wizard.id,
+                }
+        </field>
+    </record>
+
+
+    <record model="ir.actions.server" id="account_asset_masive_change_model_action_server">
+        <field name="name">Cambiar Modelos</field>
+        <field name="model_id" ref="account_asset_extended.model_account_asset"/>
+        <field name="binding_model_id" ref="account_asset_extended.model_account_asset"/>
+        <field name="state">code</field>
+        <field name="binding_view_types">list</field>
+        <field name="code">
+            if records:
+                new_wizard = env['asset.modify.massive'].create({
+                    'records_ids': records,
+                    'is_model_change': True,
+                })
+                action = {
+                    'name': ('Modify Asset'),
+                    'view_mode': 'form',
+                    'res_model': 'asset.modify.massive',
+                    'type': 'ir.actions.act_window',
+                    'target': 'new',
+                    'res_id': new_wizard.id,
+                }
+        </field>
+    </record>
+
+<!-- 
+        <record model="ir.actions.server" id="action_made_by">
+            <field name="name">Sign: made by</field>
+            <field name="model_id" ref="expense_thomas.model_expense_thomas_assignment"/>
+            <field name="binding_model_id" ref="expense_thomas.model_expense_thomas_assignment"/>
+            <field name="binding_view_types">list</field>
+            <field name="state">code</field>
+            <field name="code">
+                if records: 
+                    signature = records.get_sign_made_by()
+            </field>
+        </record>
+
+        <record model="ir.actions.server" id="action_sign_reviewed_by">
+            <field name="name">Sign: reviewed by</field>
+            <field name="model_id" ref="expense_thomas.model_expense_thomas_assignment"/>
+            <field name="binding_model_id" ref="expense_thomas.model_expense_thomas_assignment"/>
+            <field name="binding_view_types">list</field>
+            <field name="state">code</field>
+            <field name="code">
+                if records: 
+                    signature = records.get_sign_reviewed_by()
+            </field>
+        </record>
+
+        <record model="ir.actions.server" id="action_sign_approved_by">
+            <field name="name">Sign: approved by</field>
+            <field name="model_id" ref="expense_thomas.model_expense_thomas_assignment"/>
+            <field name="binding_model_id" ref="expense_thomas.model_expense_thomas_assignment"/>
+            <field name="binding_view_types">list</field>
+            <field name="state">code</field>
+            <field name="code">
+                if records: 
+                    signature = records.get_sign_approved_by()
+            </field>
+        </record>
+
+        <record model="ir.actions.server" id="action_sign_managment_by">
+            <field name="name">Sign: managment by</field>
+            <field name="model_id" ref="expense_thomas.model_expense_thomas_assignment"/>
+            <field name="binding_model_id" ref="expense_thomas.model_expense_thomas_assignment"/>
+            <field name="binding_view_types">list</field>
+            <field name="state">code</field>
+            <field name="code">
+                if records: 
+                    signature = records.get_sign_managment_by()
+            </field>
+        </record> -->
+
+        
+    </data>
+</odoo>

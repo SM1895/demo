@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>   
+    <record id="account_tax_settlement_ica_form_view" model="ir.ui.view">
+        <field name="name">account.tax.settlement.ica.form.view</field>
+        <field name="model">account.tax.settlement.ica</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form import="0" delete="0">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="total_income_accounts_ids" widget="many2many_tags"/>
+                            <field name="return_income_accounts_ids" widget="many2many_tags"/>
+                            <field name="export_income_accounts_ids" widget="many2many_tags"/>
+                            <field name="sale_income_accounts_ids" widget="many2many_tags"/>
+                        </group>
+                        <group>
+                            <field name="exclude_income_accounts_ids" widget="many2many_tags"/>
+                            <field name="exempt_income_accounts_ids" widget="many2many_tags"/>
+                            <field name="retencion_ica_accounts_ids" widget="many2many_tags"/>
+                            <field name="company_id" invisible="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="account_tax_settlement_ica_tree_view" model="ir.ui.view">
+        <field name="name">account.tax.settlement.ica.tree.view</field>
+        <field name="model">account.tax.settlement.ica</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree import="0" delete="0">
+                <field name="total_income_accounts_ids" widget="many2many_tags"/>
+                <field name="return_income_accounts_ids" widget="many2many_tags"/>
+                <field name="export_income_accounts_ids" widget="many2many_tags"/>
+                <field name="sale_income_accounts_ids" widget="many2many_tags"/>
+                <field name="exclude_income_accounts_ids" widget="many2many_tags"/>
+                <field name="exempt_income_accounts_ids" widget="many2many_tags"/>
+                <field name="retencion_ica_accounts_ids" widget="many2many_tags"/>
+                <field name="company_id" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_account_tax_settlement_ica" model="ir.actions.act_window">
+        <field name="name">Configuración Liquidación ICA</field>
+        <field name="res_model">account.tax.settlement.ica</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+            Crear una nueva Configuración Liquidación ICA
+            </p>
+        </field>
+    </record>
+
+    <menuitem 
+        id="account_tax_settlement_ica_menu" 
+        name="Configuración Liquidación ICA" 
+        parent="pei_account_tax.menu_tax_ica_retention_root"
+        sequence="50"
+        action="action_account_tax_settlement_ica"/>
+</odoo>

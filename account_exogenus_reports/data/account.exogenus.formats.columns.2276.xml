@@ -1,0 +1,368 @@
+<odoo>
+    <data noupdate="1">
+        <record model="account.exogenus.formats.columns" id="line_2276_1">
+            <field name="name">Entidad informante</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">data</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="condition_python">result = ''</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_2">
+            <field name="name">Tipo de documento</field>
+            <field name="type_column">data</field>
+            <field name="group_bool">False</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="condition_python">if line['l10n_co_document_code'] == "national_citizen_id" or line['l10n_co_document_code'] == '13':
+    result = '13'
+else:
+    result = line['l10n_co_document_code']</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_3">
+            <field name="name">Número identificación del informado</field>
+            <field name="group_bool">True</field>
+            <field name="type_column">data</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="condition_python">result = line['vat']</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_4">
+            <field name="name">Primer apellido del informado</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">data</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="condition_python">if line.get('first_surname',False):
+    result = line.get('first_surname',False)
+else:
+    result = ''</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_5">
+            <field name="name">Segundo apellido del informado</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">data</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="condition_python">if line.get('second_surname',False):
+    result = line.get('second_surname')
+else:
+    result = ''</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_6">
+            <field name="name">Primer nombre del informado</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">data</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="condition_python">if line.get('first_name',False):
+    result = line.get('first_name',False)
+else:
+    result = ''</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_7">
+            <field name="name">Otros nombres del informado</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">data</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="condition_python">if line.get('second_name',False):
+    result = line.get('second_name')
+else:
+    result = ''</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_8">
+            <field name="name">Dirección</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">data</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="condition_python">result = line['street']</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_9">
+            <field name="name">Código dpto</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">data</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="condition_python">result = line['state_code']</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_10">
+            <field name="name">Código mcp</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">data</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="condition_python">result = line['zipcode']</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_11">
+            <field name="name">País o residencial</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">data</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="condition_python">result = line['country_code']</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_12">
+            <field name="name">Pagos por Salarios</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">calculated</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="condition_python">params = {
+    'partner_id': line['partner_id'],
+    'date_from':wizard.date_from,
+    'date_to':wizard.date_to
+}
+result = self._get_total_aml_by_column(params)</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_13">
+            <field name="name">Pagos por emolumentos eclesiásticos</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">calculated</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="condition_python">result = ''</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_14">
+            <field name="name">Pagos por honorarios</field>
+            <field name="minior_amount">True</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">calculated</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="condition_python">params = {
+    'partner_id': line['partner_id'],
+    'date_from':wizard.date_from,
+    'date_to':wizard.date_to
+}
+result = self._get_total_aml_by_column(params)</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_15">
+            <field name="name">Pagos por servicios</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">calculated</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="condition_python">params = {
+    'partner_id': line['partner_id'],
+    'date_from':wizard.date_from,
+    'date_to':wizard.date_to
+}
+result = self._get_total_aml_by_column(params)</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_16">
+            <field name="name">Pagos por comisiones</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">calculated</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="condition_python">params = {
+    'partner_id': line['partner_id'],
+    'date_from':wizard.date_from,
+    'date_to':wizard.date_to
+}
+result = self._get_total_aml_by_column(params)</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_17">
+            <field name="name">Pagos por prestaciones sociales</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">calculated</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="condition_python">params = {
+    'partner_id': line['partner_id'],
+    'date_from':wizard.date_from,
+    'date_to':wizard.date_to
+}
+result = self._get_total_aml_by_column(params)</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_18">
+            <field name="name">Pagos por viáticos</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">calculated</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="condition_python">params = {
+    'partner_id': line['partner_id'],
+    'date_from':wizard.date_from,
+    'date_to':wizard.date_to
+}
+result = self._get_total_aml_by_column(params)</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_19">
+            <field name="name">Pagos por gastos de representación</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">calculated</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="condition_python">params = {
+    'partner_id': line['partner_id'],
+    'date_from':wizard.date_from,
+    'date_to':wizard.date_to
+}
+result = self._get_total_aml_by_column(params)</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_20">
+            <field name="name">Pagos por compensaciones trabajo asociado cooperativo</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">calculated</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="condition_python">result = ''</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_21">
+            <field name="name">Otros pagos</field>
+            <field name="group_bool">False</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="type_column">calculated</field>
+            <field name="condition_python">result = ''</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_22">
+            <field name="name">Cesantías e intereses de cesantías efectivamente pagadas, consignadas o reconocidas en el periodo</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">calculated</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="condition_python">params = {
+    'partner_id': line['partner_id'],
+    'date_from':wizard.date_from,
+    'date_to':wizard.date_to
+}
+result = self._get_total_aml_by_column(params)</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_23">
+            <field name="name">Pensiones de Jubilación, vejez o invalidez</field>
+            <field name="group_bool">False</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="type_column">calculated</field>
+            <field name="condition_python">result = ''</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_24">
+            <field name="name">Total Ingresos brutos de rentas de trabajo y pensión</field>
+            <field name="group_bool">False</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="type_column">calculated</field>
+            <field name="condition_python">result = ''</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_25">
+            <field name="name">Aportes Obligatorios por Salud</field>
+            <field name="group_bool">False</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="condition_python">params = {
+    'partner_id': line['partner_id'],
+    'date_from':wizard.date_from,
+    'date_to':wizard.date_to
+}
+result = self._get_total_aml_by_column(params)</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_26">
+            <field name="name">Aportes obligatorios a fondos de pensiones y solidaridad pensional y Aportes voluntarios al – RAIS</field>
+            <field name="group_bool">False</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="type_column">calculated</field>
+            <field name="condition_python">params = {
+    'partner_id': line['partner_id'],
+    'date_from':wizard.date_from,
+    'date_to':wizard.date_to
+}
+result = self._get_total_aml_by_column(params)</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_27">
+            <field name="name">Aportes voluntarios a fondos de pensiones voluntarias</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">calculated</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="condition_python">params = {
+    'partner_id': line['partner_id'],
+    'date_from':wizard.date_from,
+    'date_to':wizard.date_to
+}
+result = self._get_total_aml_by_column(params)</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_28">
+            <field name="name">Aportes a cuentas AFC</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">calculated</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="condition_python">params = {
+    'partner_id': line['partner_id'],
+    'date_from':wizard.date_from,
+    'date_to':wizard.date_to
+}
+result = self._get_total_aml_by_column(params)</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_29">
+            <field name="name">Aportes a cuentas AVC</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">calculated</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="condition_python">params = {
+    'partner_id': line['partner_id'],
+    'date_from':wizard.date_from,
+    'date_to':wizard.date_to
+}
+result = self._get_total_aml_by_column(params)</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_30">
+            <field name="name">Valor de las retenciones en la fuente por pagos de rentas de trabajo o pensiones</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">calculated</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="condition_python">params = {
+    'partner_id': line['partner_id'],
+    'date_from':wizard.date_from,
+    'date_to':wizard.date_to
+}
+result = self._get_total_aml_by_column(params)</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_31">
+            <field name="name">Pagos realizados con bonos electrónicos o de papel de servicio, cheques, tarjetas, vales, etc.</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">calculated</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="condition_python">params = {
+    'partner_id': line['partner_id'],
+    'date_from':wizard.date_from,
+    'date_to':wizard.date_to
+}
+result = self._get_total_aml_by_column(params)</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_32">
+            <field name="name">Apoyos económicos no reembolsables o condonados, entregados por el Estado o financiados con recursos públicos, para financiar programas educativos</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">calculated</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="condition_python">params = {
+    'partner_id': line['partner_id'],
+    'date_from':wizard.date_from,
+    'date_to':wizard.date_to
+}
+result = self._get_total_aml_by_column(params)</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_33">
+            <field name="name">Pagos por alimentación mayores a 41 UVT</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">calculated</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="condition_python">params = {
+    'partner_id': line['partner_id'],
+    'date_from':wizard.date_from,
+    'date_to':wizard.date_to
+}
+result = self._get_total_aml_by_column(params)</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_34">
+            <field name="name">Pagos por alimentación hasta a 41 UVT</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">calculated</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="condition_python">params = {
+    'partner_id': line['partner_id'],
+    'date_from':wizard.date_from,
+    'date_to':wizard.date_to
+}
+result = self._get_total_aml_by_column(params)</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_35">
+            <field name="name">Identificación del fideicomiso o contrato</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">data</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="condition_python">result = ''</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_36">
+            <field name="name">Tipo documento participante en contrato de colaboración</field>
+            <field name="group_bool">False</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="type_column">data</field>
+            <field name="condition_python">result = ''</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_2276_37">
+            <field name="name">Identificación participante en contrato colaboración</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">data</field>
+            <field name="exogenus_format_id" ref="format_2276"/>
+            <field name="condition_python">result = ''</field>
+        </record>
+    </data>
+</odoo>

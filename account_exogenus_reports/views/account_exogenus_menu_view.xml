@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="account_exogenus_menu" name="Exogenus Information" parent="account.menu_finance_configuration" sequence="150" groups="account.group_account_manager"/>
+        <menuitem id="account_exogenus_format_menu" action="account_exogenus_reports.account_exogenus_format_action" sequence="151" parent="account_exogenus_reports.account_exogenus_menu" name="Format Exogenus" groups="account.group_account_manager"/>
+        <menuitem id="account_exogenus_format_concepts_menu" action="account_exogenus_reports.account_exogenus_format_concepts_action" sequence="152" parent="account_exogenus_reports.account_exogenus_menu" name="Format Exogenus Concepts" groups="account.group_account_manager"/>
+        <menuitem id="account_exogenus_format_columns_menu" action="account_exogenus_reports.account_exogenus_formats_columns_action" sequence="153" parent="account_exogenus_reports.account_exogenus_menu" name="Format Exogenus Columns" groups="account.group_account_manager"/>
+        <menuitem id="account_exogenus_format_concept_accounts_menu" action="account_exogenus_reports.account_exogenus_format_concepts_account_action" sequence="154" parent="account_exogenus_reports.account_exogenus_menu" name="Format Exogenus Concept Account" groups="account.group_account_manager"/>
+    </data>
+</odoo>

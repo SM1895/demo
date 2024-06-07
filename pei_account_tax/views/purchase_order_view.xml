@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>   
+    <record id="pei_purchase_order_form_inherit" model="ir.ui.view">
+        <field name="name">pei.purchase.order.form.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <div name="date_planned_div" position="after">
+                <field name="aiu" required="1" widget="selection_badge" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                <field name="aiu_type" attrs="{'invisible': [('aiu', '!=', 'yes')], 'readonly': [('state', '!=', 'draft')], 'required': [('aiu', '=', 'yes')]}"/>
+            </div>
+            <page name="purchase_delivery_invoice" position="after">
+                <page string="AIU" name="purchase_aiu_lines" attrs="{'invisible': [('aiu', '!=', 'yes')]}">
+                    <field name="aiu_line_ids" attrs="{'readonly': [('state', '!=', 'draft')]}">
+                        <tree create="0" delete="0" editable="bottom">
+                            <field name="setting_id" invisible="1"/>
+                            <field name="name" readonly="1"/>
+                            <field name="percentage" widget="percentage"/>
+                            <field name="amount" readonly="1"/>
+                        </tree>
+                    </field>
+                </page>
+            </page>
+            <xpath expr="//page[@name='products']//field[@name='order_line']//tree//field[@name='price_unit']" position="before">
+                <field name="aiu_amount"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

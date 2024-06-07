@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="account_exogenus_print_reports" model="ir.ui.view">
+            <field name="name">Print Report Account Exogenus</field>
+            <field name="model">account.exogenus.print.reports</field>
+            <field name="arch" type="xml">
+                <form string="print_report_exogenus">
+                    <group>
+                        <group>
+                            <field name="exogenus_format_id" options="{'no_create': True, 'no_create_edit':True}" required="1"/>
+                        </group>
+                        <group>
+                            <label for="date_from" string="Dates"/>
+                            <div class="d-flex">
+                                <field name="date_from" placeholder="Date From"/>
+                                <span class="o_form_label mx-3 oe_edit_only">to</span>
+                                <field name="date_to" force_save="1" placeholder="Date to"/>
+                            </div>
+                        </group>
+                    </group>
+                    <group string="File Generated">
+                        <field name="file_filename" readonly="1" invisible="1"/>
+                        <field name="file_binary" filename="file_filename" readonly="1"/>
+                    </group>
+                    <footer>
+                        <button name="action_generate_report" string="Print Report" type="object" default_focus="1" class="oe_highlight"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_menu_main_print_report_exogenus" model="ir.actions.act_window">
+            <field name="name">Print Report Exogenus</field>
+            <field name="res_model">account.exogenus.print.reports</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="account_exogenus_print_reports"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem name="Exogenus reports" parent="account.menu_finance_reports" id="print_reports_exogenus_main_menu"/>
+
+        <menuitem name="Print exogenus reports" parent="print_reports_exogenus_main_menu" id="print_reports_exogenus_mwnu" action="account_exogenus_reports.action_menu_main_print_report_exogenus"/>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="account_exogenus_formats_concepts_account_view_form">
+        <field name="name">account.exogenus.formats.concepts.account.view.form</field>
+        <field name="model">account.exogenus.formats.concepts.account</field>
+        <field eval="3" name="priority"/>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" required="1"/>
+                            <field name="exogenus_concept_id"/>
+                        </group>
+                        <group>
+                            <field name="account_id"/>
+                            <field name="company_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="account_exogenus_formats_concepts_account_tree_view" model="ir.ui.view">
+        <field name="name">account.exogenus.formats.concepts.account.tree.view</field>
+        <field name="model">account.exogenus.formats.concepts.account</field>
+        <field eval="101" name="priority"/>
+        <field name="arch" type="xml">
+            <tree string="Exogenus Format Concepts Account">
+                <field name="name"/>
+                <field name="exogenus_concept_id"/>
+                <field name="account_id"/>
+                <field name="company_id" invisible="0"/>
+            </tree>
+        </field>
+    </record>
+    <record id="account_exogenus_format_concepts_account_action" model="ir.actions.act_window">
+        <field name="name">Format Exogenus Concepts Account</field>
+        <field name="res_model">account.exogenus.formats.concepts.account</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

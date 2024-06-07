@@ -1,0 +1,102 @@
+<odoo>
+    <data noupdate="1">
+        <record model="account.exogenus.formats.columns" id="line_1006_1">
+            <field name="name">Primer apellido del informado</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">data</field>
+            <field name="exogenus_format_id" ref="format_1006"/>
+            <field name="condition_python">result = line['first_surname'] if line.get('first_surname','') else line.get('name','')</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_1006_2">
+            <field name="name">Segundo apellido del informado</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">data</field>
+            <field name="exogenus_format_id" ref="format_1006"/>
+            <field name="condition_python">result = result = line['second_surname'] if line.get('second_surname','') else line.get('name','')</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_1006_3">
+            <field name="name">Primer nombre del informado</field>
+            <field name="type_column">data</field>
+            <field name="group_bool">False</field>
+            <field name="exogenus_format_id" ref="format_1006"/>
+            <field name="condition_python">result = line['first_name'] if line.get('first_name','') else line.get('name','')</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_1006_4">
+            <field name="name">Otros nombres del informado</field>
+            <field name="type_column">data</field>
+            <field name="group_bool">False</field>
+            <field name="exogenus_format_id" ref="format_1006"/>
+            <field name="condition_python">result = line['second_name'] if line.get('second_name','') else line.get('name','')</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_1006_5">
+            <field name="name">Razón social informado</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">data</field>
+            <field name="exogenus_format_id" ref="format_1006"/>
+            <field name="condition_python">result = line['first_surname'] if line.get('first_surname','') else line.get('name','')</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_1006_6">
+            <field name="name">Tipo documento</field>
+            <field name="group_bool">False</field>
+            <field name="exogenus_format_id" ref="format_1006"/>
+            <field name="type_column">data</field>
+            <field name="condition_python">if line['l10n_co_document_code'] == "id_document" or line['l10n_co_document_code'] == '13':
+    result = '13'
+else:
+    result = line['l10n_co_document_code']</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_1006_7">
+            <field name="name">Número identificación del informado</field>
+            <field name="group_bool">False</field>
+            <field name="exogenus_format_id" ref="format_1006"/>
+            <field name="type_column">data</field>
+            <field name="condition_python">result = line['vat']</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_1006_8">
+            <field name="name">Impuesto (iva) generado</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">calculated</field>
+            <field name="exogenus_format_id" ref="format_1006"/>
+            <field name="condition_python">params = {
+    'partner_id': line['id'],
+    'date_from':wizard.date_from,
+    'date_to':wizard.date_to
+}
+result = self._get_total_aml_by_column(params)</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_1006_9">
+            <field name="name">IVA recuperado por operaciones en devoluciones en compras anuladas, rescindidas o resueltas</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">calculated</field>
+            <field name="exogenus_format_id" ref="format_1006"/>
+            <field name="condition_python">params = {
+    'partner_id': line['id'],
+    'date_from':wizard.date_from,
+    'date_to':wizard.date_to
+}
+result = self._get_total_aml_by_column(params)</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_1006_10">
+            <field name="name">Impuesto al consumo generado</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">calculated</field>
+            <field name="exogenus_format_id" ref="format_1006"/>
+            <field name="condition_python">params = {
+    'partner_id': line['id'],
+    'date_from':wizard.date_from,
+    'date_to':wizard.date_to
+}
+result = self._get_total_aml_by_column(params)</field>
+        </record>
+        <record model="account.exogenus.formats.columns" id="line_1006_11">
+            <field name="name">DV</field>
+            <field name="group_bool">False</field>
+            <field name="type_column">data</field>
+            <field name="exogenus_format_id" ref="format_1006"/>
+            <field name="condition_python">partner_id = line['id']
+partner_obj = self.env['res.partner'].search([('id','=',partner_id)])
+if partner_obj:
+    result = partner_obj.vat</field>
+        </record>
+    </data>
+</odoo>

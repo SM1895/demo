@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="account_tax_retention_ica_group_view_form" model="ir.ui.view">
+        <field name="name">account.tax.retention.ica.group.view.form</field>
+        <field name="model">account.tax.retention.ica.group</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="city_id"/>
+                        </group>
+                        <group>
+                            <field name="account_analytics_ids" required="1" widget="many2many_tags" domain="[('company_id', '=', company_id)]"/>
+                            <field name="company_id" invisible="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="account_tax_retention_ica_group_view_tree" model="ir.ui.view">
+        <field name="name">account.tax.retention.ica.group.view.tree</field>
+        <field name="model">account.tax.retention.ica.group</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="city_id" required="1"/>
+                <field name="account_analytics_ids" required="1" widget="many2many_tags" domain="[('company_id', '=', company_id)]"/>
+                <field name="company_id" invisible="1"/>
+                <field name="city_from_business" invisible="1"/>
+                <button name="action_read_group" string="Configurar" type="object" class="float-end btn-secondary" attrs="{'invisible': [('city_from_business', '=', True)]}"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="act_account_tax_retention_ica_group">
+        <field name="name">Configuración Mapeo Ciudad y Analítico</field>
+        <field name="res_model">account.tax.retention.ica.group</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Click Para Crear una Nueva Configuración Mapeo Ciudad y Analítico
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_account_tax_retention_ica_group" 
+        name="Configuración Mapeo Ciudad y Analítico" 
+        sequence="30" 
+        action="act_account_tax_retention_ica_group"
+        parent="pei_account_tax.menu_tax_ica_retention_root"/>
+</odoo>

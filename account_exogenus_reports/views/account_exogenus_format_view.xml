@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="account_exogenus_formats_view_form">
+        <field name="name">account.exogenus.formats.view.form</field>
+        <field name="model">account.exogenus.formats</field>
+        <field eval="3" name="priority"/>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title pr-0">
+                        <label for='name'>name</label>
+
+                        <h2>
+                            <field name="name" required="1"/>
+                        </h2>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="company_id"/>
+                            <field name="has_smaller_amount" widget="boolean_toggle"/>
+                            <field name="lesser_amount" attrs="{'invisible': [('has_smaller_amount', '=', False)]}"/>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                            <field name="format_type"/>
+                            <field name="has_concepts" widget="boolean_toggle"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="info_concept_format" string="Concepts Format" attrs="{'invisible': [('has_concepts', '=', False)]}">
+                            <field name="exogenus_formats_concept_ids">
+                                <tree editable="botttom">
+                                    <field name="name"/>
+                                    <field name="description"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="info_column_format" string="Columns Format">
+                            <field name="exogenus_formats_columns_ids">
+                                <tree editable="botttom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="account_format_column_id" required="True" options="{'no_create': True, 'no_create_edit':True}"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="account_exogenus_formats_tree_view" model="ir.ui.view">
+        <field name="name">account.exogenus.formats.tree.view</field>
+        <field name="model">account.exogenus.formats</field>
+        <field eval="101" name="priority"/>
+        <field name="arch" type="xml">
+            <tree string="Exogenus Format">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="format_type"/>
+                <field name="company_id" invisible="0"/>
+            </tree>
+        </field>
+    </record>
+    <record id="account_exogenus_format_action" model="ir.actions.act_window">
+        <field name="name">Format Exogenus</field>
+        <field name="res_model">account.exogenus.formats</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
